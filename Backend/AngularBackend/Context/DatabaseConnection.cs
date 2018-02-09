@@ -5,8 +5,9 @@ namespace AngularBackend.Context {
     public class DatabaseContext : DbContext {
         public DatabaseContext() : base("DefaultConnection") { }
 
-        public DbSet<Country> Countries { get; set; }
-        public DbSet<State> States { get; set; }
-        public DbSet<City> Cities { get; set; }
+        public DbSet<Event> Events { get; set; }
+        public DbSet<Entry> Entries { get; set; }
+
+
     }
 }

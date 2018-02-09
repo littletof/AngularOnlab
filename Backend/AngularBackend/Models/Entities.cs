@@ -2,29 +2,22 @@
 using System.ComponentModel.DataAnnotations;
 
 namespace AngularBackend.Models {
-    public class Country {
+
+    public class Event {
         [Key]
-        public int CountryId { get; set; }
+        public int EventId { get; set; }
         public string Name { get; set; }
-        public List<State> State { get; set; }
+        public string Description { get; set; }
+        public List<Entry> Entry { get; set; }
     }
 
-    public class State {
+    public class Entry {
         [Key]
-        public int StateId { get; set; }
+        public int EntryId { get; set; }
         public string Name { get; set; }
-        public List<City> City { get; set; }
-        //Adding Foreign Key constraints for country  
-        public int CountryId { get; set; }
-        public Country Country { get; set; }
-    }
+        public string Note { get; set; }
 
-    public class City {
-        [Key]
-        public int CityId { get; set; }
-        public string Name { get; set; }
-        //Adding Foreign Key Constraints for State  
-        public int StateId { get; set; }
-        public State State { get; set; }
+        public int EventId { get; set; }
+        public Event Event { get; set; }
     }
 }
