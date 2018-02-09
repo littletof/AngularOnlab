@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../api/api.service';
 
+import { Event } from '../model/event';
+
 @Component({
   selector: 'app-tester',
   templateUrl: './tester.component.html',
@@ -8,14 +10,19 @@ import { ApiService } from '../api/api.service';
 })
 export class TesterComponent implements OnInit {
 
-  constructor(private api: ApiService) { }
+  events: Event[] = [];
+  JSON: any;
+  
+  constructor(private api: ApiService) {
+    this.JSON = JSON;
+   }
 
   ngOnInit() {
     this.api.getTest().subscribe(events => {
-      events.map(event => {
-        console.log(event);
-      });
+      this.events = events;
     });
+
+    console.log(this.events);
   }
 
 }

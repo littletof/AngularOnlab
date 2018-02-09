@@ -27,7 +27,8 @@ namespace AngularBackend.Controllers
                                          where entry.EventId == even.EventId
                                          select new {
                                              entry.Name,
-                                             entry.Note
+                                             entry.Note,
+                                             entry.EventId
                                          }
 
                              };
