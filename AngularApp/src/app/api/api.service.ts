@@ -16,8 +16,6 @@ export class ApiService {
 
   constructor(private http: Http) { }
 
-
-
   public getTest(): Observable<Event[]> {
     return this.http
       .get(API_URL + '/Default')
