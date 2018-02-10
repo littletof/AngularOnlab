@@ -18,4 +18,8 @@ export class DataService {
     return this.api.getAllEvents();
   }
 
+  public getEvent(id: number):  Observable<Event[]> {
+    return this.api.getEventById(id);
+  }
+
 }

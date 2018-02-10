@@ -43,8 +43,14 @@ export class ApiService {
   }
 
   // API: GET /events/:id
-  public getEventById(eventId: number) {
-    // will use this.http.get()
+  public getEventById(eventId: number): Observable<Event[]> {
+    return this.http
+      .get(API_URL + '/events/' + eventId)
+      .map(response => {
+          const events = response.json();
+          return events.map((event) => event as Event[]);
+    })
+    .catch(this.handleError);
   }
 
   // API: PUT /events/:id

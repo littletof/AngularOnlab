@@ -1,5 +1,24 @@
+<h1>Test Component</h1>
+
 <p>
   Events will work: 
   {{JSON.stringify(events)}}
   
 </p>
+<span *ngIf="events[0]">
+  <input [(ngModel)]="events[0].eventId" class="data">
+  <input [(ngModel)]="events[0].name" class="data">
+  <input [(ngModel)]="events[0].description" class="data">
+</span>
+
+<div><button (click)="get()">Get</button></div>
+<div><button (click)="getID()">Get:id</button><input [(ngModel)]="ID"></div>
+<div><button (click)="put()">Put</button></div>
+<div><button (click)="putID()">Put:id</button></div>
+<div><button (click)="deleteID()">Delete:id</button></div>
+
+
+
+
+
+

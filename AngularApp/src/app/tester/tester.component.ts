@@ -11,6 +11,7 @@ import { DataService } from '../data/data.service';
 export class TesterComponent implements OnInit {
 
   events: Event[] = [];
+  ID = 1;
   JSON: any;
 
   constructor(private api: DataService) {
@@ -18,11 +19,37 @@ export class TesterComponent implements OnInit {
    }
 
   ngOnInit() {
+
+  }
+
+  private click() {
+    console.log('clicked');
+  }
+
+  private get() {
     this.api.getAllEvents().subscribe(events => {
+      console.log('get', events);
       this.events = events;
     });
+  }
 
-    console.log(this.events);
+  private getID() {
+    this.api.getEvent(this.ID).subscribe(event => {
+      console.log('get', event);
+      this.events = event;
+    });
+  }
+
+  private put() {
+
+  }
+
+  private putID() {
+
+  }
+
+  private deleteID() {
+
   }
 
 }
