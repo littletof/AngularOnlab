@@ -97,6 +97,7 @@
     <Compile Include="Context\DatabaseConnection.cs" />
     <Compile Include="Context\DatabaseInitialization.cs" />
     <Compile Include="Controllers\DefaultController.cs" />
+    <Compile Include="Controllers\EventsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
