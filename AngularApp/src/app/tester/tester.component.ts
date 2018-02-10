@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { ApiService } from '../api/api.service';
 
 import { Event } from '../model/event';
+import { DataService } from '../data/data.service';
 
 @Component({
   selector: 'app-tester',
@@ -13,12 +13,12 @@ export class TesterComponent implements OnInit {
   events: Event[] = [];
   JSON: any;
 
-  constructor(private api: ApiService) {
+  constructor(private api: DataService) {
     this.JSON = JSON;
    }
 
   ngOnInit() {
-    this.api.getTest().subscribe(events => {
+    this.api.getAllEvents().subscribe(events => {
       this.events = events;
     });
 

@@ -18,13 +18,47 @@ export class ApiService {
 
   public getTest(): Observable<Event[]> {
     return this.http
-      .get(API_URL + '/Default')
+      .get(API_URL + '/default')
       .map(response => {
           const events = response.json();
           return events.map((event) => event as Event[]);
     })
     .catch(this.handleError);
   }
+
+  // API: GET /events
+  public getAllEvents(): Observable<Event[]> {
+    return this.http
+      .get(API_URL + '/events')
+      .map(response => {
+          const events = response.json();
+          return events.map((event) => event as Event[]);
+    })
+    .catch(this.handleError);
+  }
+
+  // API: POST /events
+  public createEvent(event: Event) {
+    // will use this.http.post()
+  }
+
+  // API: GET /events/:id
+  public getEventById(eventId: number) {
+    // will use this.http.get()
+  }
+
+  // API: PUT /events/:id
+  public updateEvent(event: Event) {
+    // will use this.http.put()
+  }
+
+  // DELETE /events/:id
+  public deleteEventById(eventId: number) {
+    // will use this.http.delete()
+  }
+
+
+
 
   private handleError (error: Response | any) {
     console.error('ApiService::handleError', error);

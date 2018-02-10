@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { TesterComponent } from './tester/tester.component';
 import { ApiService } from './api/api.service';
 import { HttpModule } from '@angular/http';
+import { DataService } from './data/data.service';
 
 
 @NgModule({
@@ -17,7 +18,7 @@ import { HttpModule } from '@angular/http';
     BrowserModule,
     HttpModule
   ],
-  providers: [ApiService],
+  providers: [ApiService, DataService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
