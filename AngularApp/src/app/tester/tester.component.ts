@@ -12,7 +12,7 @@ export class TesterComponent implements OnInit {
 
   events: Event[] = [];
   JSON: any;
-  
+
   constructor(private api: ApiService) {
     this.JSON = JSON;
    }
