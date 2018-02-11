@@ -1,5 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using Newtonsoft.Json;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+
 
 namespace AngularBackend.Models {
 
@@ -8,6 +10,8 @@ namespace AngularBackend.Models {
         public int EventId { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
+
+        [JsonIgnore] //TODO megbeszél kell e
         public List<Entry> Entry { get; set; }
     }
 
@@ -18,6 +22,8 @@ namespace AngularBackend.Models {
         public string Note { get; set; }
 
         public int EventId { get; set; }
+
+        [JsonIgnore]
         public Event Event { get; set; }
     }
 }
