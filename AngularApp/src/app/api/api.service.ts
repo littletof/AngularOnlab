@@ -38,12 +38,18 @@ export class ApiService {
   }
 
   // API: POST /events
-  public createEvent(event: Event) {
-    // will use this.http.post()
+  public createEvent(c_event: Event): Observable<Event> {
+    return this.http
+    .post(API_URL + '/events', c_event)
+    .map(response => {
+        const event = response.json();
+        return event as Event;
+  })
+  .catch(this.handleError);
   }
 
   // API: GET /events/:id
-  public getEventById(eventId: number): Observable<Event[]> {
+  public getEventById(eventId: number): Observable<Event> {
     return this.http
       .get(API_URL + '/events/' + eventId)
       .map(response => {
@@ -54,13 +60,24 @@ export class ApiService {
   }
 
   // API: PUT /events/:id
-  public updateEvent(event: Event) {
-    // will use this.http.put()
+  public updateEvent(id: number, u_event: Event): Observable<boolean> {
+    return this.http
+    .put(API_URL + '/events/' + id, u_event)
+    .map(response => {
+        return response.json();
+    })
+  .catch(this.handleError);
   }
 
   // DELETE /events/:id
-  public deleteEventById(eventId: number) {
-    // will use this.http.delete()
+  public deleteEventById(eventId: number): Observable<Event> {
+    return this.http
+      .delete(API_URL + '/events/' + eventId)
+      .map(response => {
+          const event = response.json();
+          return event as Event;
+    })
+    .catch(this.handleError);
   }
 
 

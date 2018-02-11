@@ -7,6 +7,8 @@ using System.Web.Http;
 
 using AngularBackend.Models;
 using AngularBackend.Context;
+using AngularBackend.Context.DatabaseEntities;
+using System.Diagnostics;
 
 namespace AngularBackend.Controllers {
     public class EventsController : ApiController {
@@ -15,23 +17,9 @@ namespace AngularBackend.Controllers {
 
         // GET api/<controller>
         public IHttpActionResult Get() {
+            Debug.WriteLine("Get /events");
             try {
-                //TODO move to data class
-                var result = from even in db.Events
-                             select new {
-                                 even.EventId,
-                                 even.Name,
-                                 even.Description,
-                                 Entry = from entry in db.Entries
-                                         where entry.EventId == even.EventId
-                                         select new {
-                                             entry.Name,
-                                             entry.Note,
-                                             entry.EventId
-                                         }
-
-                             };
-
+                var result = DatabaseEvent.getAll();
 
                 return Ok(result);
             } catch (Exception) {
@@ -42,24 +30,14 @@ namespace AngularBackend.Controllers {
 
         // GET api/<controller>/5
         public IHttpActionResult Get(int id) {
+            Debug.WriteLine("Get /events/{0}", id);
             try {
-                //TODO move to data class
-                var result = from even in db.Events
-                             where even.EventId == id
-                             select new {
-                                 even.EventId,
-                                 even.Name,
-                                 even.Description,
-                                 Entry = from entry in db.Entries
-                                         where entry.EventId == even.EventId
-                                         select new {
-                                             entry.Name,
-                                             entry.Note,
-                                             entry.EventId
-                                         }
+                var result = DatabaseEvent.getById(id);
 
-                             };
-
+                // Empty array is better?!
+                /*if (result.Count == 0) {
+                    return NotFound();
+                }*/
 
                 return Ok(result);
             } catch (Exception) {
@@ -69,16 +47,51 @@ namespace AngularBackend.Controllers {
         }
 
         // POST api/<controller>
-        public void Post([FromBody]Event value) {
-            Console.WriteLine(value);
+        public IHttpActionResult Post([FromBody]Event value) {
+            Debug.WriteLine("post: {0}", value);
+            try {
+                var result = DatabaseEvent.put(value);
+
+                // Empty array is better?!
+                /*if (result.Count == 0) {
+                    return NotFound();
+                }*/
+
+                return Ok(result);
+            } catch (Exception) {
+                //If any exception occurs Internal Server Error i.e. Status Code 500 will be returned  
+                return InternalServerError();
+            }
+        }
+
+        public IHttpActionResult Options() {
+            return Ok();
         }
 
         // PUT api/<controller>/5
-        public void Put(int id, [FromBody]Event value) {
+        public IHttpActionResult Put(int id, [FromBody]Event value) {
+            Debug.WriteLine("put: id:{0}, value:{1}",id, value);
+            try {
+                var result = DatabaseEvent.putById(id, value);
+
+                return Ok(result);
+            } catch (Exception) {
+                //If any exception occurs Internal Server Error i.e. Status Code 500 will be returned  
+                return InternalServerError();
+            }
         }
 
         // DELETE api/<controller>/5
-        public void Delete(int id) {
+        public IHttpActionResult Delete(int id) {
+            Debug.WriteLine("delete: id:{0}", id);
+            try {
+                var result = DatabaseEvent.deleteById(id);
+
+                return Ok(result);
+            } catch (Exception) {
+                //If any exception occurs Internal Server Error i.e. Status Code 500 will be returned  
+                return InternalServerError();
+            }
         }
     }
 }

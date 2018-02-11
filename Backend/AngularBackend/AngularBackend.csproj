@@ -95,6 +95,8 @@
   <ItemGroup>
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Context\DatabaseConnection.cs" />
+    <Compile Include="Context\DatabaseEntities\DatabaseEntry.cs" />
+    <Compile Include="Context\DatabaseEntities\DatabaseEvent.cs" />
     <Compile Include="Context\DatabaseInitialization.cs" />
     <Compile Include="Controllers\DefaultController.cs" />
     <Compile Include="Controllers\EventsController.cs" />

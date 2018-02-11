@@ -18,8 +18,20 @@ export class DataService {
     return this.api.getAllEvents();
   }
 
-  public getEvent(id: number):  Observable<Event[]> {
+  public getEvent(id: number):  Observable<Event> {
     return this.api.getEventById(id);
+  }
+
+  public createEvent(event: Event): Observable<Event> {
+    return this.api.createEvent(event);
+  }
+
+  public updateEvent(id: number, event: Event): Observable<boolean> {
+    return this.api.updateEvent(id, event);
+  }
+
+  public deleteEvent(id: number):  Observable<Event> {
+    return this.api.deleteEventById(id);
   }
 
 }

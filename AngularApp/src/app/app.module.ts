@@ -8,12 +8,14 @@ import { TesterComponent } from './tester/tester.component';
 import { ApiService } from './api/api.service';
 import { HttpModule } from '@angular/http';
 import { DataService } from './data/data.service';
+import { DebugEventComponent } from './debug-tools/debug-event/debug-event.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    TesterComponent
+    TesterComponent,
+    DebugEventComponent
   ],
   imports: [
     BrowserModule,

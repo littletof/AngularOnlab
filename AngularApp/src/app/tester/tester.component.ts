@@ -35,21 +35,28 @@ export class TesterComponent implements OnInit {
 
   private getID() {
     this.api.getEvent(this.ID).subscribe(event => {
-      console.log('get', event);
-      this.events = event;
+      console.log('getid', event);
+      this.events = [];
+      this.events[0] = event;
     });
   }
 
   private put() {
-
+    this.api.createEvent(this.events[0]).subscribe(sevent => {
+      console.log('create', sevent);
+    });
   }
 
   private putID() {
-
+    this.api.updateEvent(this.ID, this.events[0]).subscribe(sevent => {
+      console.log('update', sevent);
+    });
   }
 
   private deleteID() {
-
+    this.api.deleteEvent(this.ID).subscribe(sevent => {
+      console.log('delete', sevent);
+    });
   }
 
 }

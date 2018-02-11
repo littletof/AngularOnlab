@@ -1,3 +1,7 @@
-.data{
-    display: block;
+.crud{
+    padding: 10px;
+    background-color: #ececec;
+}
+.crud > * {
+    margin: 5px;
 }
