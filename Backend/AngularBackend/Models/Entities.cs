@@ -7,7 +7,7 @@ namespace AngularBackend.Models {
 
     public class Event {
         [Key]
-        public int EventId { get; set; }
+        public int Id { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
 
@@ -17,7 +17,7 @@ namespace AngularBackend.Models {
 
     public class Entry {
         [Key]
-        public int EntryId { get; set; }
+        public int Id { get; set; }
         public string Name { get; set; }
         public string Note { get; set; }
 
