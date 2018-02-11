@@ -1,0 +1,8 @@
+<div class="event" *ngIf="event; else empty">
+  <input [(ngModel)]="event.eventId" class="data" (keyup)="changed()">
+  <input [(ngModel)]="event.name" class="data" (keyup)="changed()">
+  <input [(ngModel)]="event.description" class="data" (keyup)="changed()">
+</div>
+<ng-template #empty>
+  <div class="noevent">No event to show</div>
+</ng-template>
