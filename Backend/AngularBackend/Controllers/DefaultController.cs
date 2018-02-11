@@ -21,10 +21,10 @@ namespace AngularBackend.Controllers
                 //TODO move to data class
                 var result = from even in db.Events
                              select new {
-                                 even.EventId,
+                                 even.Id,
                                  even.Name,
                                  Entry = from entry in db.Entries
-                                         where entry.EventId == even.EventId
+                                         where entry.EventId == even.Id
                                          select new {
                                              entry.Name,
                                              entry.Note,

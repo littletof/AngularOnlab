@@ -17,11 +17,9 @@ namespace AngularBackend.Context.DatabaseEntities {
             }
         }
 
-        public static List<Event> getById(int event_id) {
+        public static Event getById(int event_id) {
             using (var db = new DatabaseContext()) {
-                List<Event> result = (from even in db.Events
-                                      where even.EventId == event_id
-                                      select even).ToList<Event>();
+                Event result = db.Events.SingleOrDefault<Event>(even => even.Id == event_id);
                 return result;
             }
         }
@@ -51,7 +49,7 @@ namespace AngularBackend.Context.DatabaseEntities {
             {
                 /*var result = db.Events.SingleOrDefault(e => e.EventId == id);
                 if (result != null) {*/
-                ev.EventId = id;
+                ev.Id = id;
                     db.Events.AddOrUpdate(ev);
                     db.SaveChanges();
                     return true;
@@ -62,7 +60,7 @@ namespace AngularBackend.Context.DatabaseEntities {
 
         public static Event deleteById(int id) {
             using (var db = new DatabaseContext()) {
-                var even = db.Events.SingleOrDefault(s => s.EventId == id);
+                var even = db.Events.SingleOrDefault(s => s.Id == id);
                 if(even != null) {
                     var deleted = db.Events.Remove(even);
                     db.SaveChanges();
@@ -78,7 +76,7 @@ namespace AngularBackend.Context.DatabaseEntities {
         {
             return new {
                 even.Name,
-                even.EventId,
+                even.Id,
                 even.Description,
                 even.Entry
             };

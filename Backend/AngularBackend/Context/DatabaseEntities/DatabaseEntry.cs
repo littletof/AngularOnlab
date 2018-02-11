@@ -21,7 +21,7 @@ namespace AngularBackend.Context.DatabaseEntities {
         public static List<Entry> getById(int entry_id) {
             using (var db = new DatabaseContext()) {
                 List<Entry> result = (from entry in db.Entries
-                                      where entry.EntryId == entry_id
+                                      where entry.Id == entry_id
                                       select entry).ToList<Entry>();
                 return result;
             }

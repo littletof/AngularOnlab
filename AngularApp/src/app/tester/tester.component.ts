@@ -10,7 +10,7 @@ import { DataService } from '../data/data.service';
 })
 export class TesterComponent implements OnInit {
 
-  events: Event[] = [];
+  events: any = [];
   ID = 1;
   JSON: any;
 
@@ -36,8 +36,7 @@ export class TesterComponent implements OnInit {
   private getID() {
     this.api.getEvent(this.ID).subscribe(event => {
       console.log('getid', event);
-      this.events = [];
-      this.events[0] = event;
+      this.events = event;
     });
   }
 

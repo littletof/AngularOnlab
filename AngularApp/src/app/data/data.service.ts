@@ -22,7 +22,7 @@ export class DataService {
     return this.api.getEventById(id);
   }
 
-  public createEvent(event: Event): Observable<Event> {
+  public createEvent(event: Event): Observable<Event[]> {
     return this.api.createEvent(event);
   }
 
@@ -30,7 +30,7 @@ export class DataService {
     return this.api.updateEvent(id, event);
   }
 
-  public deleteEvent(id: number):  Observable<Event> {
+  public deleteEvent(id: number):  Observable<Event[]> {
     return this.api.deleteEventById(id);
   }
 

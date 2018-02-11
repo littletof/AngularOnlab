@@ -38,12 +38,12 @@ export class ApiService {
   }
 
   // API: POST /events
-  public createEvent(c_event: Event): Observable<Event> {
+  public createEvent(c_event: Event): Observable<Event[]> {
     return this.http
     .post(API_URL + '/events', c_event)
     .map(response => {
         const event = response.json();
-        return event as Event;
+        return event as Event[];
   })
   .catch(this.handleError);
   }
@@ -53,8 +53,8 @@ export class ApiService {
     return this.http
       .get(API_URL + '/events/' + eventId)
       .map(response => {
-          const events = response.json();
-          return events.map((event) => event as Event[]);
+          const event = response.json();
+          return event as Event;
     })
     .catch(this.handleError);
   }
@@ -70,12 +70,12 @@ export class ApiService {
   }
 
   // DELETE /events/:id
-  public deleteEventById(eventId: number): Observable<Event> {
+  public deleteEventById(eventId: number): Observable<Event[]> {
     return this.http
       .delete(API_URL + '/events/' + eventId)
       .map(response => {
           const event = response.json();
-          return event as Event;
+          return event as Event[];
     })
     .catch(this.handleError);
   }
