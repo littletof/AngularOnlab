@@ -3,11 +3,11 @@
 
 <div class="container col-8 bg-light rounded">
   <div class="row p-2">
-    <div class="col-md-6 col-sm-12 vertical-align mx-auto"><app-debug-crud class="col-12" [object]="connectionEvent" (response)="response($event)" ></app-debug-crud></div>
+    <div class="col-md-6 col-sm-12 vertical-align mx-auto mb-sm-2 mb-md-0"><app-debug-crud class="col-12" [object]="connectionEvent" (response)="response($event)" ></app-debug-crud></div>
     <div class="col-md-6 col-sm-12 vertical-align mx-auto"><app-debug-event class="col-12" [event]="connectionEvent"></app-debug-event></div>
   </div>
   <div class="row p-2">
-      <div class="col-12 bg-white"><pre>{{events | json}}</pre></div>
+      <div class="col-12 bg-white rounded"><pre>{{events | json}}</pre></div>
   </div>
 </div>
 
