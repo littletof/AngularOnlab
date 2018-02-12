@@ -35,18 +35,21 @@ export class DebugCrudComponent implements OnInit {
   private put() {
     this.api.createEvent(this.object).subscribe(sevent => {
       console.log('create', sevent);
+      this.return(sevent);
     });
   }
 
   private putID() {
     this.api.updateEvent(this.ID, this.object).subscribe(sevent => {
       console.log('update', sevent);
+      this.return(sevent);
     });
   }
 
   private deleteID() {
     this.api.deleteEvent(this.ID).subscribe(sevent => {
       console.log('delete', sevent);
+      this.return(sevent);
     });
   }
 
