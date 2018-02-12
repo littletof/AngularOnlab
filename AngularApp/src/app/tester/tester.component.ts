@@ -10,7 +10,7 @@ import { DataService } from '../data/data.service';
 })
 export class TesterComponent implements OnInit {
 
-  events: any = [];
+  events: any = null;
   ID = 1;
   JSON: any;
   connectionEvent: Event;

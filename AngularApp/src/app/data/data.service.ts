@@ -20,7 +20,7 @@ export class DataService {
   }
 
   public getEvent(id: number):  Observable<Event> {
-    if (id !== undefined) {
+    if (id) {
       return this.api.getEventById(id);
     }
     throw new Error('Called getEvent with undefined id');
