@@ -5,6 +5,7 @@ import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/observable/throw';
+import 'rxjs/add/observable/of';
 
 import { Event } from '../model/event';
 
@@ -19,7 +20,11 @@ export class DataService {
   }
 
   public getEvent(id: number):  Observable<Event> {
-    return this.api.getEventById(id);
+    if (id !== undefined) {
+      return this.api.getEventById(id);
+    }
+    throw new Error('Called getEvent with undefined id');
+    // return Observable.of(null);
   }
 
   public createEvent(event: Event): Observable<Event[]> {
@@ -27,7 +32,10 @@ export class DataService {
   }
 
   public updateEvent(id: number, event: Event): Observable<boolean> {
-    return this.api.updateEvent(id, event);
+    if (id !== undefined) {
+      return this.api.updateEvent(id, event);
+    }
+    throw new Error('Called updateEvent with undefined id');
   }
 
   public deleteEvent(id: number):  Observable<Event[]> {
