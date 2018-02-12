@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
-import { Event } from '../model/event';
-import { DataService } from '../data/data.service';
+import { Event } from '../../model/event';
+import { DataService } from '../../data/data.service';
 
 @Component({
   selector: 'app-tester',

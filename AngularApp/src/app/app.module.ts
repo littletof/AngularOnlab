@@ -4,7 +4,7 @@ import { FormsModule } from '@angular/forms';
 
 
 import { AppComponent } from './app.component';
-import { TesterComponent } from './tester/tester.component';
+import { TesterComponent } from './debug-tools/tester/tester.component';
 import { ApiService } from './api/api.service';
 import { HttpModule } from '@angular/http';
 import { DataService } from './data/data.service';
