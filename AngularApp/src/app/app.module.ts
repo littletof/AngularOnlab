@@ -10,6 +10,8 @@ import { HttpModule } from '@angular/http';
 import { DataService } from './data/data.service';
 import { DebugEventComponent } from './debug-tools/debug-event/debug-event.component';
 
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+
 
 @NgModule({
   declarations: [
@@ -20,7 +22,8 @@ import { DebugEventComponent } from './debug-tools/debug-event/debug-event.compo
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule
+    HttpModule,
+    NgbModule.forRoot()
   ],
   providers: [ApiService, DataService],
   bootstrap: [AppComponent]

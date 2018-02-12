@@ -1,21 +1,14 @@
-.data{
-    display: block;
-    
-}
-
 div.event{    
     padding: 10px;
     background-color: #acacac;
-    height: 4em;
-    width: 10em;
 }
 
 .noevent{
     height: 4em;
-    width: 10em;
+    width: 11em;
     background-color: #acacac;
     padding: 10px;
-    line-height: 4em;
+    line-height: 3em;
     color: white;
     font-weight: bold;
     font-family: 'Courier New', Courier, monospace;

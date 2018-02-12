@@ -1,8 +1,35 @@
-<div class="event" *ngIf="event; else empty">
-  <input [(ngModel)]="event.id" class="data" (keyup)="changed()">
-  <input [(ngModel)]="event.name" class="data" (keyup)="changed()">
-  <input [(ngModel)]="event.description" class="data" (keyup)="changed()">
+<div>
+  <!--<div class="event" *ngIf="event; else empty">-->
+
+  <ng-template #empty>
+    <div class="noevent">No event to show</div>
+  </ng-template>
+
+  <div class="col-6 container">    
+    <div class="input-group mb-1">
+      <div class="input-group-prepend">
+          <span class="input-group-text" id="id-addon">ID:</span>
+      </div>
+      <input type="text" class="form-control" placeholder="id" aria-label="ID" aria-describedby="id-addon" 
+            [(ngModel)]="event.id" (keyup)="changed()">
+    </div>
+
+    <div class="input-group mb-1">
+      <div class="input-group-prepend">
+          <span class="input-group-text" id="title-addon">Title:</span>
+      </div>
+      <input type="text" class="form-control" placeholder="title" aria-label="Title" aria-describedby="title-addon" 
+            [(ngModel)]="event.name" (keyup)="changed()">
+    </div>
+
+    <div class="input-group mb-1">
+      <div class="input-group-prepend">
+        <span class="input-group-text" id="desc-addon">Desc:</span>
+      </div>
+      <input type="text" class="form-control" placeholder="description" aria-label="Description" aria-describedby="desc-addon" 
+            [(ngModel)]="event.description" (keyup)="changed()">
+    </div>
+  </div>
+
+
 </div>
-<ng-template #empty>
-  <div class="noevent">No event to show</div>
-</ng-template>

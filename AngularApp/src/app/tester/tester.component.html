@@ -1,18 +1,25 @@
 <h1>Test Component</h1>
 
-<pre> 
-  {{events | json}}
+
+<div class="container col-10">
+  <div class="row">  
+    <div class="col-6"><app-debug-event [event]="displayedEvent"></app-debug-event></div>
+
+    <div class="col-6"><pre>{{events | json}}</pre></div>
+  </div>
+
   
-</pre>
-<app-debug-event [event]="displayedEvent"></app-debug-event>
+  
+</div>
+
 
 <div class="crud">
   <div>ID: <input [(ngModel)]="ID"></div>
-  <div><button (click)="get()">Get</button></div>
-  <div><button (click)="getID()">Get:id</button></div>
-  <div><button (click)="put()">Put</button></div>
-  <div><button (click)="putID()">Put:id</button></div>
-  <div><button (click)="deleteID()">Delete:id</button></div>
+  <div><button (click)="get()" class="btn btn-primary">Get</button></div>
+  <div><button (click)="getID()" class="btn btn-primary">Get:id</button></div>
+  <div><button (click)="put()" class="btn btn-primary">Put</button></div>
+  <div><button (click)="putID()" class="btn btn-primary">Put:id</button></div>
+  <div><button (click)="deleteID()" class="btn btn-primary">Delete:id</button></div>
 </div>
 
 
