@@ -1,0 +1,18 @@
+<div class="container bg-light rounded button-grid border border-secondary">
+    <div class="row p-1">
+      <div class="input-group col-12 mb-1">
+        <div class="input-group-prepend">
+            <span class="input-group-text" id="crud-addon">CRUD ID:</span>
+        </div>
+        <input type="number" class="form-control col-12" placeholder="id" aria-label="ID" aria-describedby="crud-addon" 
+              [(ngModel)]="ID">
+      </div>
+  
+  
+      <div class="col-6 mb-1"><button (click)="get()" class="btn btn-primary">Get</button></div>
+      <div class="col-6 mb-1"><button (click)="getID()" class="btn btn-primary">Get:id</button></div>
+      <div class="col-6 mb-1"><button (click)="put()" class="btn btn-primary">Put</button></div>
+      <div class="col-6 mb-1"><button (click)="putID()" class="btn btn-primary">Put:id</button></div>
+      <div class="col-12 mb-1"><button (click)="deleteID()" class="btn btn-primary">Delete:id</button></div>
+    </div>
+  </div>

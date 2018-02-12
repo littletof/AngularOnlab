@@ -2,10 +2,10 @@
   <!--<div class="event" *ngIf="event; else empty">-->
 
   <ng-template #empty>
-    <div class="noevent">No event to show</div>
+    <div class="noevent col-8 container">No event to show</div>
   </ng-template>
 
-  <div class="col-6 container">    
+  <div class="col-8 container" *ngIf="event; else empty">    
     <div class="input-group mb-1">
       <div class="input-group-prepend">
           <span class="input-group-text" id="id-addon">ID:</span>

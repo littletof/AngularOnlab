@@ -11,13 +11,15 @@ import { DataService } from './data/data.service';
 import { DebugEventComponent } from './debug-tools/debug-event/debug-event.component';
 
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { DebugCrudComponent } from './debug-tools/debug-crud/debug-crud.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     TesterComponent,
-    DebugEventComponent
+    DebugEventComponent,
+    DebugCrudComponent
   ],
   imports: [
     BrowserModule,

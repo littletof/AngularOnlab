@@ -1,20 +1,40 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, OnChanges, SimpleChanges, SimpleChange } from '@angular/core';
 
 import { Event } from '../../model/event';
+import { isNull } from 'util';
 
 @Component({
   selector: 'app-debug-event',
   templateUrl: './debug-event.component.html',
   styleUrls: ['./debug-event.component.css']
 })
-export class DebugEventComponent implements OnInit {
+export class DebugEventComponent implements OnChanges, OnInit {
 
-  @Input() event: Event;
+  @Input() event: Event = new Event('', null, '', null);
   @Output() eventChange: EventEmitter<any> = new EventEmitter();
 
   constructor() { }
 
   ngOnInit() {
+  }
+
+  ngOnChanges(changes: SimpleChanges) {
+    const event: SimpleChange = changes.event;
+
+    this.display(event.currentValue);
+
+  }
+
+  private display(obj: any) {
+    if (obj === undefined || obj === null) {
+      this.event = new Event('', null, '', null);
+
+    } else if (Array.isArray(obj)) {
+      this.display(obj[0]);
+
+    } else {
+      this.event = obj;
+    }
   }
 
   public changed() {
