@@ -7,11 +7,15 @@ import { AppComponent } from './app.component';
 import { TesterComponent } from './debug-tools/tester/tester.component';
 import { ApiService } from './api/api.service';
 import { HttpModule } from '@angular/http';
-import { DataService } from './data/data.service';
-import { DebugEventComponent } from './debug-tools/debug-event/debug-event.component';
 
+import { DataService } from './data/data.service';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+
+import { DebugEventComponent } from './debug-tools/debug-event/debug-event.component';
 import { DebugCrudComponent } from './debug-tools/debug-crud/debug-crud.component';
+import { DebugCalendarComponent } from './debug-tools/debug-calendar/debug-calendar.component';
+import { AppRoutingModule } from './app-routing/app-routing.module';
+import { RouterModule } from '@angular/router';
 
 
 @NgModule({
@@ -19,13 +23,16 @@ import { DebugCrudComponent } from './debug-tools/debug-crud/debug-crud.componen
     AppComponent,
     TesterComponent,
     DebugEventComponent,
-    DebugCrudComponent
+    DebugCrudComponent,
+    DebugCalendarComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
-    NgbModule.forRoot()
+    NgbModule.forRoot(),
+    AppRoutingModule,
+    RouterModule
   ],
   providers: [ApiService, DataService],
   bootstrap: [AppComponent]
