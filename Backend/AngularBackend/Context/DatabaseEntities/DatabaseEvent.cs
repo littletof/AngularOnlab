@@ -75,7 +75,7 @@ namespace AngularBackend.Context.DatabaseEntities {
         public Object toApiOutput(Event even)
         {
             return new {
-                even.Name,
+                even.Title,
                 even.Id,
                 even.Description,
                 even.Entry

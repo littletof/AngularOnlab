@@ -22,7 +22,7 @@ namespace AngularBackend.Controllers
                 var result = from even in db.Events
                              select new {
                                  even.Id,
-                                 even.Name,
+                                 even.Title,
                                  Entry = from entry in db.Entries
                                          where entry.EventId == even.Id
                                          select new {

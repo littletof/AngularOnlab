@@ -22,7 +22,7 @@ namespace AngularBackend.Context {
             };
 
             var seedEvent = new Event {
-                    Name="First Event",
+                    Title="First Event",
                     Entry = entries,
                     Description = "This is the first ever event"
 
