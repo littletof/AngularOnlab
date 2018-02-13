@@ -18,6 +18,12 @@ import { AppRoutingModule } from './app-routing/app-routing.module';
 import { RouterModule } from '@angular/router';
 
 
+
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {MatIconModule, MatNativeDateModule, MatInputModule} from '@angular/material';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import {MatFormFieldModule} from '@angular/material/form-field';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -32,7 +38,14 @@ import { RouterModule } from '@angular/router';
     HttpModule,
     NgbModule.forRoot(),
     AppRoutingModule,
-    RouterModule
+    RouterModule,
+
+    BrowserAnimationsModule,
+    MatIconModule,
+    MatDatepickerModule,
+    MatFormFieldModule,
+    MatNativeDateModule,
+    MatInputModule
   ],
   providers: [ApiService, DataService],
   bootstrap: [AppComponent]
