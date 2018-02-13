@@ -11,8 +11,7 @@ namespace AngularBackend.Context.DatabaseEntities {
         public static List<Event> getAll() {
 
             using (var db = new DatabaseContext()) {
-                List<Event> result = (from even in db.Events
-                                      select even).ToList<Event>();
+                List<Event> result = db.Events.ToList<Event>();
                 return result;
             }
         }

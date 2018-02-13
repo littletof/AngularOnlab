@@ -26,7 +26,7 @@ export class DebugEventComponent implements OnChanges, OnInit {
   }
 
   private display(obj: any) {
-    if (obj === undefined || obj === null) {
+    if (!obj) {
       this.event = new Event('', null, '', null);
 
     } else if (Array.isArray(obj)) {
