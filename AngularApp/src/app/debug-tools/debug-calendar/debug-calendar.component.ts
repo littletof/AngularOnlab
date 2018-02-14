@@ -3,8 +3,6 @@ import { NgbDateStruct } from '@ng-bootstrap/ng-bootstrap';
 
 import { DateClickedDirective, DateRangeHelper } from 'multiple-date-picker-angular/dist';
 
-import * as moment from 'moment';
-
 @Component({
   selector: 'app-debug-calendar',
   templateUrl: './debug-calendar.component.html',
@@ -15,7 +13,6 @@ export class DebugCalendarComponent implements OnInit {
   model: NgbDateStruct;
 
   constructor() {
-    moment.locale('hu');
   }
 
   ngOnInit() {
