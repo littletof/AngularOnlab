@@ -24,6 +24,8 @@ import {MatIconModule, MatNativeDateModule, MatInputModule} from '@angular/mater
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatFormFieldModule} from '@angular/material/form-field';
 
+import { MultipleDatePickerModule } from 'multiple-date-picker-angular';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -45,7 +47,9 @@ import {MatFormFieldModule} from '@angular/material/form-field';
     MatDatepickerModule,
     MatFormFieldModule,
     MatNativeDateModule,
-    MatInputModule
+    MatInputModule,
+
+    MultipleDatePickerModule
   ],
   providers: [ApiService, DataService],
   bootstrap: [AppComponent]

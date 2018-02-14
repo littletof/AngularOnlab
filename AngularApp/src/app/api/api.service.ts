@@ -66,7 +66,7 @@ export class ApiService {
     .map(response => {
         return response.json();
     })
-  .catch(this.handleError);
+    .catch(this.handleError);
   }
 
   // DELETE /events/:id

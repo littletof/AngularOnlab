@@ -1,23 +1,32 @@
-
-<h3 class="mb-3">ng-bootstrap</h3>
-
-<ngb-datepicker></ngb-datepicker>
+<div class="container">
 
 
-<form class="form-inline mt-2">
-    <div class="form-group">
-      <div class="input-group">
-        <input class="form-control" placeholder="yyyy-mm-dd"
-               name="dp" [(ngModel)]="model" ngbDatepicker #d="ngbDatepicker">
-        <div class="input-group-append">
-          <button class="btn btn-outline-secondary" (click)="d.toggle()" type="button">
-            <!--<img src="img/calendar-icon.svg" style="width: 1.2rem; height: 1rem; cursor: pointer;"/>-->
-            <mat-icon style="font-size: 1.3em;">event_note</mat-icon>
-          </button>
+
+  <div class="col-6">
+    <multiple-date-picker [matIcons]="true" [showDaysOfSurroundingMonths]="true" [fontAwesome]="true"></multiple-date-picker>
+  </div>
+
+
+
+  <h3 class="mb-3">ng-bootstrap</h3>
+
+  <ngb-datepicker></ngb-datepicker>
+
+
+  <form class="form-inline mt-2">
+      <div class="form-group">
+        <div class="input-group">
+          <input class="form-control" placeholder="yyyy-mm-dd"
+                name="dp" [(ngModel)]="model" ngbDatepicker #d="ngbDatepicker">
+          <div class="input-group-append">
+            <button class="btn btn-outline-secondary" (click)="d.toggle()" type="button">
+              <!--<img src="img/calendar-icon.svg" style="width: 1.2rem; height: 1rem; cursor: pointer;"/>-->
+              <mat-icon style="font-size: 1.3em;">event_note</mat-icon>
+            </button>
+          </div>
         </div>
       </div>
-    </div>
-  </form>
+    </form>
 
 
  <h3 class="mb-3 mt-5">Angular material</h3> 
@@ -27,3 +36,7 @@
       <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
       <mat-datepicker #picker></mat-datepicker>
   </mat-form-field>
+
+  
+
+</div>
