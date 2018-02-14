@@ -33,9 +33,14 @@ html, body {
     color: #fff !important;
 }
 
-.picker-day.picker-selected {
+.picker-day.picker-selected:not(.picker-off) {
     background-color: #2e7d32 !important;
     color: #fff !important;
+}
+
+.picker-day.picker-selected.picker-off {
+    background-color: #794811 !important; /*---256628*/
+    color: #f3f3e3 !important;
 }
 
 .picker-day.picker-selected.click-selection-active:not(.picker-off) {
