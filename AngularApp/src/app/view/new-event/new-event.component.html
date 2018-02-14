@@ -46,9 +46,13 @@
         </form>
   </div>
   <div class="col-md-6 col-sm-12 float-left">
-      <multiple-date-picker #datePicker [matIcons]="true" [showDaysOfSurroundingMonths]="true" [weekDaysOff]="days" [fontAwesome]="true"></multiple-date-picker>
+      <multiple-date-picker #datePicker [matIcons]="true" [showDaysOfSurroundingMonths]="true" 
+        [weekDaysOff]="days" [fontAwesome]="true" [disallowBackPastMonths]="true" [disableDaysBefore]="true"
+        [(ngModel)]="outp"></multiple-date-picker>
       <app-day-checkbox [(selected)]="days" (change)="ref()"></app-day-checkbox>
   </div>
+
+  {{outp.toString()}}
   
 </div>
 

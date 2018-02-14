@@ -12,12 +12,18 @@ export class NewEventComponent implements OnInit {
 
   days: number[] = [2];
 
+  outp: Array<any> = new Array();
+
   @ViewChild(MultipleDatePickerComponent)
   datePicker: MultipleDatePickerComponent;
 
   constructor() { moment.locale('hu'); }
 
   ngOnInit() {
+  }
+
+  out(value: any) {
+    console.log(value);
   }
 
   ref() {
