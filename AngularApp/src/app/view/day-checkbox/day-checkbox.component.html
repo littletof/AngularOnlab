@@ -1,6 +1,6 @@
-<div class="form-group row col-12 fg">
+<div class="form-group row col-12 m-0 p-0 w-100">
     
-            <div class="btn-group btng">
+            <div class="btn-group w-100">
                 
                 <label class="btn btn-success active lable" *ngFor="let okker of days; index as i;">
                     <input type="checkbox" autocomplete="off" [(ngModel)]="days[i].value" name="monday" hidden (change)="changed(i)">
