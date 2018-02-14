@@ -25,6 +25,7 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatFormFieldModule} from '@angular/material/form-field';
 
 import { MultipleDatePickerModule } from 'multiple-date-picker-angular';
+import { NewEventComponent } from './view/new-event/new-event.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { MultipleDatePickerModule } from 'multiple-date-picker-angular';
     TesterComponent,
     DebugEventComponent,
     DebugCrudComponent,
-    DebugCalendarComponent
+    DebugCalendarComponent,
+    NewEventComponent
   ],
   imports: [
     BrowserModule,
