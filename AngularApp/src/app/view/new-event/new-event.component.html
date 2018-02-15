@@ -54,9 +54,9 @@
       <app-day-checkbox [calendarObject]="datePicker" (selectedChange)="selectChange($event)"></app-day-checkbox>
   </div>
 
-  <app-selected-date *ngFor="let date of errorDays" [date]="date" (deleteClicked)="delDay($event)" [error]="isErrorDay(date)"></app-selected-date>
+  <app-selected-date *ngFor="let date of errorDays" [date]="date" (deleteClicked)="delDay($event)" (dateClicked)="dateClicked($event)" [error]="isErrorDay(date)"></app-selected-date>
   <br>
-  <app-selected-date *ngFor="let date of showDays" [date]="date" (deleteClicked)="delDay($event)" [error]="isErrorDay(date)"></app-selected-date>
+  <app-selected-date *ngFor="let date of showDays" [date]="date" (deleteClicked)="delDay($event)" (dateClicked)="dateClicked($event)" [error]="isErrorDay(date)"></app-selected-date>
   
 </div>
 

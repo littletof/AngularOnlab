@@ -1,12 +1,13 @@
 import * as moment from 'moment';
 import { MultipleDatePickerComponent } from 'multiple-date-picker-angular/dist';
+import { Moment } from 'moment';
 
-export class PickerHacker {
-    static hackDatePicker(dp: MultipleDatePickerComponent, allowed: Array<moment.Moment>) {
+export class DatePickerHacker {
+    static hackDatePicker(dp: MultipleDatePickerComponent, allowed: Array<Moment>) {
         (dp as any).oldisDayOff = dp.isDayOff;
 
 
-        (dp as any).refreshAllowed = function (allowedDays: Array<moment.Moment>) {
+        (dp as any).refreshAllowed = function (allowedDays: Array<Moment>) {
             if (dp.daysAllowed) {
                 dp.daysAllowed.join(allowedDays);
             } else {
@@ -23,5 +24,10 @@ export class PickerHacker {
               !(dp.weekDaysOff && dp.weekDaysOff.indexOf((arr_day.isoWeekday()) % 7) !== -1);
           }));
         };
-      }
+    }
+
+    static jumpToDate(dp: MultipleDatePickerComponent, day: Moment) {
+        const diff = dp.month.diff(day, 'months', true);
+        dp.changeMonth({ preventDefault: function() {} }, null, -diff);
+    }
 }

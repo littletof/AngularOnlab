@@ -11,6 +11,7 @@ export class SelectedDateComponent implements OnInit, OnChanges {
   @Input() date: Moment;
   @Input() error: boolean;
   @Output() deleteClicked: EventEmitter<any> = new EventEmitter();
+  @Output() dateClicked: EventEmitter<any> = new EventEmitter();
 
 
   private good = 'badge-success';
@@ -35,6 +36,10 @@ export class SelectedDateComponent implements OnInit, OnChanges {
 
   deletePressed() {
     this.deleteClicked.emit(this.date);
+  }
+
+  datePressed() {
+    this.dateClicked.emit(this.date);
   }
 
 }

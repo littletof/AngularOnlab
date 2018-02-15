@@ -4,6 +4,7 @@ import * as moment from 'moment';
 import { MultipleDatePickerComponent, DateRangeHelper } from 'multiple-date-picker-angular/dist';
 import { Moment } from 'moment';
 import { Common } from '../../common/common';
+import { DatePickerHacker } from '../multiple-date-picker/hack-multiple-date-picker';
 
 @Component({
   selector: 'app-new-event',
@@ -63,6 +64,10 @@ export class NewEventComponent implements OnInit, DoCheck {
     Common.removeFromArray(this.selectedDays, day);
     Common.removeFromArray(this.errorDays, day);
     this.datePicker.runGenerate();
+  }
+
+  dateClicked(day: Moment) {
+    DatePickerHacker.jumpToDate(this.datePicker, day);
   }
   /*
   press() {
