@@ -27,6 +27,7 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import { MultipleDatePickerModule } from 'multiple-date-picker-angular';
 import { NewEventComponent } from './view/new-event/new-event.component';
 import { DayCheckboxComponent } from './view/day-checkbox/day-checkbox.component';
+import { SelectedDateComponent } from './view/selected-date/selected-date.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { DayCheckboxComponent } from './view/day-checkbox/day-checkbox.component
     DebugCrudComponent,
     DebugCalendarComponent,
     NewEventComponent,
-    DayCheckboxComponent
+    DayCheckboxComponent,
+    SelectedDateComponent
   ],
   imports: [
     BrowserModule,

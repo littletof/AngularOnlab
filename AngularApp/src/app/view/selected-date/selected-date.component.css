@@ -1,0 +1,11 @@
+mat-icon{
+    font-size: 0.9em;
+    line-height: .9em;
+    width: auto;
+    height: auto;
+}
+
+.date-error{
+    background-color: #794811;
+    color: #f3f3e3;
+}
