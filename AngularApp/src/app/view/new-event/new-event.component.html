@@ -40,16 +40,18 @@
 
           <div class="form-group row">
             <div class="col-sm-10">
-              <button type="submit" class="btn btn-primary">Sign in</button>
+              <button type="submit" class="btn btn-success" (click)="press()">Sign in</button>
             </div>
           </div>
         </form>
   </div>
   <div class="col-md-6 col-sm-12 float-left">
       <multiple-date-picker #datePicker [matIcons]="true" [showDaysOfSurroundingMonths]="true" 
-        [weekDaysOff]="days" [fontAwesome]="true" [disallowBackPastMonths]="true" [disableDaysBefore]="true"
-        [(ngModel)]="outp"></multiple-date-picker>
-      <app-day-checkbox [(selected)]="days" (change)="ref()"></app-day-checkbox>
+        [fontAwesome]="true" [disallowBackPastMonths]="true" [disableDaysBefore]="true"
+        [(ngModel)]="outp" [daysAllowed]="allowed" [allDaysOff]="true"></multiple-date-picker>
+
+      <!--<app-day-checkbox [(selected)]="days" (change)="availableDaysChanged($event)"></app-day-checkbox>-->
+      <app-day-checkbox [calendarObject]="datePicker"></app-day-checkbox>
   </div>
 
   {{outp.toString()}}
