@@ -1,5 +1,7 @@
 import { Component, OnInit, EventEmitter, Output, Input, SimpleChanges, SimpleChange, OnChanges } from '@angular/core';
+import { MultipleDatePickerComponent } from 'multiple-date-picker-angular/dist';
 
+import * as moment from 'moment';
 
 @Component({
   selector: 'app-day-checkbox',
@@ -7,6 +9,8 @@ import { Component, OnInit, EventEmitter, Output, Input, SimpleChanges, SimpleCh
   styleUrls: ['./day-checkbox.component.css']
 })
 export class DayCheckboxComponent implements OnInit, OnChanges {
+
+  @Input() calendarObject: MultipleDatePickerComponent;
 
   @Input() selected: number[] = [];
   @Output() selectedChange: EventEmitter<number[]> = new EventEmitter();
@@ -29,7 +33,7 @@ export class DayCheckboxComponent implements OnInit, OnChanges {
 
   ngOnChanges(changes: SimpleChanges) {
     const selected: SimpleChange = changes.selected;
-    if (selected.currentValue) {
+    if (selected && selected.currentValue) {
       const values = selected.currentValue;
       if (!Array.isArray(values)) {
         throw Error('Passed selected is not an array');
@@ -40,7 +44,7 @@ export class DayCheckboxComponent implements OnInit, OnChanges {
           this.setDay(daynum, true);
         } else {
           this.removeFromArray(this.selected, daynum);
-          this.emit();
+          this.emit({removed: true, weekday: daynum});
         }
 
       }
@@ -58,10 +62,16 @@ export class DayCheckboxComponent implements OnInit, OnChanges {
     }
   }
 
-  emit() {
+  emit(obj: any) {
     const copy: number[] = this.selected.slice();
     this.selectedChange.emit(copy);
-    this.change.emit(null);
+    this.change.emit(obj);
+
+    if (this.calendarObject) {
+      this.calendarObject.weekDaysOff = copy;
+      this.calendarObject.runGenerate();
+
+    }
   }
 
   changed(i: number) {
@@ -69,12 +79,12 @@ export class DayCheckboxComponent implements OnInit, OnChanges {
     if (this.days[i].value) {
       if (this.selected.indexOf(daynum) === -1 ) {
         this.selected.push(daynum);
+        this.emit({removed: true, weekday: daynum});
       }
     } else {
       this.removeFromArray(this.selected, daynum);
+      this.emit({removed: false, weekday: daynum});
     }
-
-    this.emit();
   }
 
   removeFromArray(array: any[], item: number) {
