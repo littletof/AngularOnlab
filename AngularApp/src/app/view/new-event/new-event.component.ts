@@ -3,6 +3,7 @@ import { Component, OnInit, ViewChild, ContentChild, AfterContentInit, DoCheck, 
 import * as moment from 'moment';
 import { MultipleDatePickerComponent, DateRangeHelper } from 'multiple-date-picker-angular/dist';
 import { Moment } from 'moment';
+import { Common } from '../../common/common';
 
 @Component({
   selector: 'app-new-event',
@@ -29,7 +30,7 @@ export class NewEventComponent implements OnInit, DoCheck {
   ngDoCheck() {
     const change = this.differ.diff(this.selectedDays);
     if (change) {
-      this.joinError();
+      this.displayArrays();
       this.sort();
     }
   }
@@ -38,7 +39,7 @@ export class NewEventComponent implements OnInit, DoCheck {
     // PickerHacker.hackDatePicker(this.datePicker, this.allowed);
   }
 
-  joinError() {
+  displayArrays() {
     const errored = this.selectedDays.filter(day => this.disabledDays.indexOf(day.isoWeekday() % 7) !== -1 );
     this.errorDays.concat(errored);
 
@@ -54,21 +55,13 @@ export class NewEventComponent implements OnInit, DoCheck {
     this.errorDays = this.selectedDays.filter(day => daysOff.indexOf(day.isoWeekday() % 7) !== -1 );
   }
 
-  error(day: Moment): boolean {
+  isErrorDay(day: Moment): boolean {
     return this.errorDays.indexOf(day) !== -1;
   }
 
   delDay(day: Moment) {
-    const index = this.selectedDays.indexOf(day);
-    if (index !== -1) {
-      this.selectedDays.splice(index, 1);
-    }
-    
-    const eindex = this.errorDays.indexOf(day);
-    if (eindex !== -1) {
-      this.errorDays.splice(eindex, 1);
-    }
-
+    Common.removeFromArray(this.selectedDays, day);
+    Common.removeFromArray(this.errorDays, day);
     this.datePicker.runGenerate();
   }
   /*

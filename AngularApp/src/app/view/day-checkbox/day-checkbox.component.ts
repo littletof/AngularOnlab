@@ -2,6 +2,7 @@ import { Component, OnInit, EventEmitter, Output, Input, SimpleChanges, SimpleCh
 import { MultipleDatePickerComponent } from 'multiple-date-picker-angular/dist';
 
 import * as moment from 'moment';
+import { Common } from '../../common/common';
 
 @Component({
   selector: 'app-day-checkbox',
@@ -43,7 +44,7 @@ export class DayCheckboxComponent implements OnInit, OnChanges {
         if (daynum < 7 && daynum >= 0) {
           this.setDay(daynum, true);
         } else {
-          this.removeFromArray(this.selected, daynum);
+          Common.removeFromArray(this.selected, daynum);
           this.emit({removed: true, weekday: daynum});
         }
 
@@ -82,15 +83,8 @@ export class DayCheckboxComponent implements OnInit, OnChanges {
         this.emit({removed: true, weekday: daynum});
       }
     } else {
-      this.removeFromArray(this.selected, daynum);
+      Common.removeFromArray(this.selected, daynum);
       this.emit({removed: false, weekday: daynum});
-    }
-  }
-
-  removeFromArray(array: any[], item: number) {
-    const index = array.indexOf(item);
-    if (index !== -1) {
-      array.splice(index, 1);
     }
   }
 
