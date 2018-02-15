@@ -2,7 +2,7 @@
     
             <div class="btn-group w-100">
                 
-                <label class="btn btn-success active lable" *ngFor="let okker of days; index as i;">
+                <label class="btn btn-success border border-success label" *ngFor="let okker of days; index as i;">
                     <input type="checkbox" autocomplete="off" [(ngModel)]="days[i].value" name="monday" hidden (change)="changed(i)">
                     <mat-icon class="align-middle day-check" *ngIf="!days[i].value">check_circle</mat-icon>
                     <mat-icon class="align-middle day-check" *ngIf="days[i].value">not_interested</mat-icon>
