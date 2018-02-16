@@ -13,6 +13,8 @@ export class DayCheckboxComponent implements OnInit, OnChanges {
 
   @Input() calendarObject: MultipleDatePickerComponent;
 
+  @Input() fixedDays: number[] = [];
+
   @Input() selected: number[] = [];
   @Output() selectedChange: EventEmitter<number[]> = new EventEmitter();
   @Output() change: EventEmitter<any> = new EventEmitter();
@@ -54,7 +56,6 @@ export class DayCheckboxComponent implements OnInit, OnChanges {
     } else {
       this.selected = [];
     }
-
   }
 
   setDay(daynum: number, value: boolean) {
@@ -68,10 +69,15 @@ export class DayCheckboxComponent implements OnInit, OnChanges {
     this.selectedChange.emit(copy);
     this.change.emit(obj);
 
+    this.updateCalendarWeekDays(copy);
+  }
+
+  updateCalendarWeekDays(obj: number[]) {
+    const copy: number[] = obj.slice();
+
     if (this.calendarObject) {
       this.calendarObject.weekDaysOff = copy;
       this.calendarObject.runGenerate();
-
     }
   }
 
@@ -86,6 +92,11 @@ export class DayCheckboxComponent implements OnInit, OnChanges {
       Common.removeFromArray(this.selected, daynum);
       this.emit({removed: false, weekday: daynum});
     }
+  }
+
+  isFixedDay(i: number) {
+    // console.log(this.fixedDays, this.selected, i, this.fixedDays.indexOf(i) !== -1);
+    return this.fixedDays.indexOf(i) !== -1;
   }
 
 }

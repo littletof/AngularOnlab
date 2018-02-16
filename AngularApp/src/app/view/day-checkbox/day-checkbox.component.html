@@ -2,10 +2,13 @@
     
             <div class="btn-group w-100">
                 
-                <label class="btn btn-success border border-success label" *ngFor="let okker of days; index as i;">
-                    <input type="checkbox" autocomplete="off" [(ngModel)]="days[i].value" name="monday" hidden (change)="changed(i)">
-                    <mat-icon class="align-middle day-check" *ngIf="!days[i].value">check_circle</mat-icon>
-                    <mat-icon class="align-middle day-check" *ngIf="days[i].value">not_interested</mat-icon>
+                <label class="btn btn-success border border-success label" [ngClass]="{active: isFixedDay(day.number)}" *ngFor="let day of days; index as i;">
+                    
+                    <input type="checkbox" autocomplete="off" [(ngModel)]="day.value" 
+                        name="monday" hidden (change)="changed(i)" [disabled]="isFixedDay(day.number)">
+
+                    <mat-icon class="align-middle day-check" *ngIf="!day.value">check_circle</mat-icon>
+                    <mat-icon class="align-middle day-check" *ngIf="day.value">not_interested</mat-icon>
                     {{days[i].name}}
                 </label>                     
     
