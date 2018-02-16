@@ -13,11 +13,11 @@ import { DatePickerHacker } from '../multiple-date-picker/hack-multiple-date-pic
 })
 export class NewEventComponent implements OnInit, DoCheck {
 
-  selectedDays: Array<Moment> = new Array();
+  selectedDays: Array<Moment> = new Array(5);
   showDays: Array<Moment> = new Array();
   errorDays: Array<Moment> = new Array();
 
-  allowed: Array<Moment> = new Array(moment());
+  allowed: Array<Moment> = new Array();
   disabledDays: Array<any> = [];
 
   @ViewChild(MultipleDatePickerComponent)
