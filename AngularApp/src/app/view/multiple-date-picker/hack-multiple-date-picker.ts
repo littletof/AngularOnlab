@@ -27,7 +27,10 @@ export class DatePickerHacker {
     }
 
     static jumpToDate(dp: MultipleDatePickerComponent, day: Moment) {
-        const diff = dp.month.diff(day, 'months', true);
+        const pickerStart = dp.month.clone().startOf('month');
+        const dayStart = day.clone().startOf('month');
+        const diff = pickerStart.diff(dayStart, 'months', false);
+
         dp.changeMonth({ preventDefault: function() {} }, null, -diff);
     }
 }
