@@ -1,6 +1,7 @@
 import * as moment from 'moment';
 import { MultipleDatePickerComponent } from 'multiple-date-picker-angular/dist';
 import { Moment } from 'moment';
+import { Common } from '../../common/common';
 
 export class DatePickerHacker {
     static hackDatePicker(dp: MultipleDatePickerComponent, allowed: Array<Moment>) {
@@ -9,7 +10,7 @@ export class DatePickerHacker {
 
         (dp as any).refreshAllowed = function (allowedDays: Array<Moment>) {
             if (dp.daysAllowed) {
-                dp.daysAllowed.join(allowedDays);
+                 dp.daysAllowed = Common.mergeArray(dp.daysAllowed, allowedDays);
             } else {
                 dp.daysAllowed = allowedDays;
             }
