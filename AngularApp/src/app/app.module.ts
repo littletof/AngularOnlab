@@ -28,6 +28,8 @@ import { MultipleDatePickerModule } from 'multiple-date-picker-angular';
 import { NewEventComponent } from './view/new-event/new-event.component';
 import { DayCheckboxComponent } from './view/day-checkbox/day-checkbox.component';
 import { SelectedDateComponent } from './view/selected-date/selected-date.component';
+import { DateRangeAdderComponent } from './view/date-range-adder/date-range-adder.component';
+import { RadioGroupComponent } from './view/radio-group/radio-group.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +40,9 @@ import { SelectedDateComponent } from './view/selected-date/selected-date.compon
     DebugCalendarComponent,
     NewEventComponent,
     DayCheckboxComponent,
-    SelectedDateComponent
+    SelectedDateComponent,
+    DateRangeAdderComponent,
+    RadioGroupComponent
   ],
   imports: [
     BrowserModule,

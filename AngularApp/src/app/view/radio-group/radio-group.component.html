@@ -1,0 +1,7 @@
+<div class="btn-group">			
+  <label class="btn btn-success btn-sm mb-0" [ngClass]="{active: selected==option.value}" *ngFor="let option of options; index as i">
+    <input type="radio" name="option{{uid}}{{i}}" autocomplete="off" value="{{option.value}}" hidden [(ngModel)]="selected">
+    {{option.text}}
+    <input type="number" class="number" *ngIf="option.extra" [(ngModel)]="option.extraValue" (click)="selected = option.value">
+  </label>
+</div>
