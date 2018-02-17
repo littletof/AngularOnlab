@@ -10,12 +10,14 @@ export class SelectedDateComponent implements OnInit, OnChanges {
 
   @Input() date: Moment;
   @Input() error: boolean;
+  @Input() disableClose = false;
   @Output() deleteClicked: EventEmitter<any> = new EventEmitter();
   @Output() dateClicked: EventEmitter<any> = new EventEmitter();
 
 
   private good = 'badge-success';
   private danger = 'date-error';
+  private info = 'badge-primary';
   colorClass: string = this.good;
 
   constructor() { }
