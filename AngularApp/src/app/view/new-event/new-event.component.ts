@@ -13,7 +13,7 @@ import { DatePickerHacker } from '../multiple-date-picker/hack-multiple-date-pic
 })
 export class NewEventComponent implements OnInit, DoCheck {
 
-  selectedDays: Array<Moment> = new Array(5);
+  selectedDays: Array<Moment> = new Array();
   showDays: Array<Moment> = new Array();
   errorDays: Array<Moment> = new Array();
 
@@ -69,6 +69,32 @@ export class NewEventComponent implements OnInit, DoCheck {
   dateClicked(day: Moment) {
     DatePickerHacker.jumpToDate(this.datePicker, day);
   }
+
+  addDays(days: Moment[]) {
+    this.selectedDays = this.dateArrayMerge(this.selectedDays, days);
+  }
+
+  dateArrayMerge(a: Moment[], b: Moment[]): Moment[] {
+    const outp = a.slice();
+    const merge = b.slice();
+
+    merge.forEach(bitem => {
+      let found = false;
+      outp.forEach(aitem => {
+        if (aitem.isSame(bitem)) {
+          found = true;
+          return;
+        }
+      });
+      if (!found) {
+        outp.push(bitem);
+        outp.sort();
+      }
+    });
+
+    return outp;
+  }
+
   /*
   press() {
     this.allowed.push(moment('2018-02-16'));

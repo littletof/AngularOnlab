@@ -57,7 +57,7 @@
       <div class="col-12">
         <div class="row">
           <div class="col-9 text-center rounded">
-              <app-date-range-adder></app-date-range-adder>
+              <app-date-range-adder (addDays)="addDays($event)"></app-date-range-adder>
           </div>  
           <div class="col-3 text-center badges bg-light p-0 rounded pb-1">
             <span *ngFor="let set of [errorDays, showDays]">
