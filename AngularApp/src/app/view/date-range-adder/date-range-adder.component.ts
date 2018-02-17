@@ -11,9 +11,13 @@ export class DateRangeAdderComponent implements OnInit {
 
   @Output() addDays = new EventEmitter<Moment[]>();
 
-  thisnext = [{value: 0, text: 'This'},
-              {value: 1, text: 'Upcoming'},
-              {value: 2, text: 'Next', extra: true, extraValue: 1}];
+
+
+  thisnext = [{value: 0, text: 'This', cb: this.thisDays},
+              {value: 1, text: 'Upcoming', cb: this.upcomingDays},
+              {value: 2, text: 'Next', cb: this.nextDays, extra: true, extraValue: 1}];
+
+
   interval = [{value: 1, text: 'Day', moment: 'day'},
               {value: 7, text: 'Week', moment: 'week'},
               {value: 30, text: 'Month', moment: 'month'}];
@@ -24,41 +28,28 @@ export class DateRangeAdderComponent implements OnInit {
   constructor() {}
 
   ngOnInit() {
-    // console.log(this.now, this.day, this.week, this.month);
   }
 
   add() {
 
-    let days;
-    // todo fnbe
-      switch (this.selectedThisNext) {
-        case 0: // this
-          days = this.thisDays();
-          break;
-        case 1: // upcoming
-          days = this.upcomingDays();
-          break;
-        case 2: // next
-          days = this.nextDays();
-          break;
-      }
+    const days = this.thisnext[this.selectedThisNext].cb(this);
 
     this.addDays.emit(days);
 
   }
 
-  thisDays(): Moment[] {
-    const interval = this.interval[this.selectedInterval].moment;
+  thisDays(obj: any): Moment[] {
+    const interval = obj.interval[obj.selectedInterval].moment;
 
     const start = moment().startOf('day');
     const end = moment().endOf(interval as any).startOf('day');
 
     const daysuntil = end.diff(start, 'day') + 1;
-    return this.dayForIntFromNow(daysuntil);
+    return obj.dayForIntFromNow(daysuntil);
   }
 
-  upcomingDays(): Moment[] {
-    const interval = this.interval[this.selectedInterval].moment;
+  upcomingDays(obj: any): Moment[] {
+    const interval = obj.interval[obj.selectedInterval].moment;
 
     const start = moment().endOf(interval as any).startOf('day').add(1, 'day');
     console.log(start);
@@ -67,11 +58,11 @@ export class DateRangeAdderComponent implements OnInit {
     console.log(start, end);
 
     const daysuntil = end.diff(start, 'day');
-    return this.dayForIntFrom(start, daysuntil);
+    return obj.dayForIntFrom(start, daysuntil);
   }
 
-  nextDays(): Moment[] {
-    return this.dayForIntFromNow(this.thisnext[2].extraValue * this.interval[this.selectedInterval].value);
+  nextDays(obj: any): Moment[] {
+    return obj.dayForIntFromNow(obj.thisnext[2].extraValue * obj.interval[obj.selectedInterval].value);
   }
 
   dayForIntFromNow(num: number): Array<moment.Moment> {
