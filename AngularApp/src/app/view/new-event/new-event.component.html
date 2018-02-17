@@ -51,11 +51,31 @@
         [(ngModel)]="selectedDays" [weekDaysOff]="disabledDays"></multiple-date-picker>
 
       <app-day-checkbox [calendarObject]="datePicker" [fixedDays]="[]" [(selected)]="disabledDays" (selectedChange)="selectChange($event)"></app-day-checkbox>
+
+
+
+      <div class="col-12">
+        <div class="row">
+          <div class="col-9 text-center rounded">
+              day insert buttons
+          </div>  
+          <div class="col-3 text-center badges bg-light p-0 rounded pb-1">
+            <span *ngFor="let set of [errorDays, showDays]">
+                <app-selected-date *ngFor="let date of set" class="col-12 p-0" [date]="date" (deleteClicked)="delDay($event)" (dateClicked)="dateClicked($event)" [error]="isErrorDay(date)"></app-selected-date>
+            </span>
+            <!--<app-selected-date *ngFor="let date of errorDays" class="p-0" [date]="date" (deleteClicked)="delDay($event)" (dateClicked)="dateClicked($event)" [error]="isErrorDay(date)"></app-selected-date>
+            <app-selected-date *ngFor="let date of showDays" class="p-0" [date]="date" (deleteClicked)="delDay($event)" (dateClicked)="dateClicked($event)" [error]="isErrorDay(date)"></app-selected-date>-->
+          </div>
+        </div>
+      </div>
+
+
+
+      <div class="col-12 m-3"><!--footer to padd--></div>
   </div>
 
-  <app-selected-date *ngFor="let date of errorDays" [date]="date" (deleteClicked)="delDay($event)" (dateClicked)="dateClicked($event)" [error]="isErrorDay(date)"></app-selected-date>
-  <br>
-  <app-selected-date *ngFor="let date of showDays" [date]="date" (deleteClicked)="delDay($event)" (dateClicked)="dateClicked($event)" [error]="isErrorDay(date)"></app-selected-date>
+
+  
   
 </div>
 
