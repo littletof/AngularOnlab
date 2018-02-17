@@ -1,22 +1,7 @@
-<!--<button class="btn btn-success btn-sm">This week</button>
-<button class="btn btn-success btn-sm">Next week</button>
-<button class="btn btn-success btn-sm">This month</button>
-<button class="btn btn-success btn-sm">Next month</button>-->
 
-<!--<div class="btn-group btn-group-toggle" data-toggle="buttons">
-    <label class="btn btn-success btn-sm active">
-      <input type="radio" name="options" id="option1" autocomplete="off" checked> Days
-    </label>
-    <label class="btn btn-success btn-sm">
-      <input type="radio" name="options" id="option2" autocomplete="off"> Weeks
-    </label>
-    <label class="btn btn-success btn-sm">
-      <input type="radio" name="options" id="option3" autocomplete="off"> Months
-    </label>
-  </div>-->
-  <app-radio-group class="mt-1 ml-1" [options]="thisnext" [selected]="0"></app-radio-group>
-  <app-radio-group class="mt-1 ml-1" [options]="[{value: 0, text: 'Day'}, {value: 1, text: 'Week'}, {value: 2, text: 'Month'}]" [selected]="0"></app-radio-group>
+  <app-radio-group class="mt-1 ml-1" [options]="thisnext" [(selected)]="selectedThisNext"></app-radio-group>
+  <app-radio-group class="mt-1 ml-1" [options]="interval" [(selected)]="selectedInterval"></app-radio-group>
 
-  <button class="btn btn-success btn-sm">Add</button>
+  <button class="btn btn-success btn-sm" (click)="add()">Add</button>
 
   
