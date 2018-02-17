@@ -18,3 +18,17 @@ html, body {
     cursor: pointer;
 }
 
+::-webkit-scrollbar {
+    width: 5px;
+}
+   
+::-webkit-scrollbar-track {
+    background: #666;
+    border-radius: 3px;
+}
+   
+::-webkit-scrollbar-thumb {
+    background: #ddd; 
+    border-radius: 3px;
+}
+
