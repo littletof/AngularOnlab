@@ -71,7 +71,8 @@ export class NewEventComponent implements OnInit, DoCheck {
   }
 
   addDays(days: Moment[]) {
-    this.selectedDays = this.dateArrayMerge(this.selectedDays, days);
+    const filtered = days.slice().filter(day => this.disabledDays.indexOf(day.isoWeekday() % 7) === -1);
+    this.selectedDays = this.dateArrayMerge(this.selectedDays, filtered);
   }
 
   dateArrayMerge(a: Moment[], b: Moment[]): Moment[] {
