@@ -30,6 +30,7 @@ import { DayCheckboxComponent } from './view/day-checkbox/day-checkbox.component
 import { SelectedDateComponent } from './view/selected-date/selected-date.component';
 import { DateRangeAdderComponent } from './view/date-range-adder/date-range-adder.component';
 import { RadioGroupComponent } from './view/radio-group/radio-group.component';
+import { EventDaySelectorComponent } from './view/event-day-selector/event-day-selector.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,8 @@ import { RadioGroupComponent } from './view/radio-group/radio-group.component';
     DayCheckboxComponent,
     SelectedDateComponent,
     DateRangeAdderComponent,
-    RadioGroupComponent
+    RadioGroupComponent,
+    EventDaySelectorComponent
   ],
   imports: [
     BrowserModule,
