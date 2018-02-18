@@ -53,22 +53,34 @@
       <app-day-checkbox [calendarObject]="datePicker" [fixedDays]="[]" [(selected)]="disabledDays" (selectedChange)="selectChange($event)"></app-day-checkbox>
 
 
-
+      <!--
       <div class="col-12">
         <div class="row">
-          <div class="col-9 text-center rounded">
+          <div class="col-lg-9 col-md-12 text-center rounded p-0">
               <app-date-range-adder (addDays)="addDays($event)"></app-date-range-adder>
           </div>  
-          <div class="col-3 text-center badges bg-light p-0 rounded pb-1">
+          <div class="col-lg-3 col-md-12 text-center badges bg-light p-0 rounded pb-1">
             <span *ngFor="let set of [errorDays, showDays]">
                 <app-selected-date *ngFor="let date of set" class="col-12 p-0" [date]="date" (deleteClicked)="delDay($event)" (dateClicked)="dateClicked($event)" [error]="isErrorDay(date)"></app-selected-date>
             </span>
-            <!--<app-selected-date *ngFor="let date of errorDays" class="p-0" [date]="date" (deleteClicked)="delDay($event)" (dateClicked)="dateClicked($event)" [error]="isErrorDay(date)"></app-selected-date>
-            <app-selected-date *ngFor="let date of showDays" class="p-0" [date]="date" (deleteClicked)="delDay($event)" (dateClicked)="dateClicked($event)" [error]="isErrorDay(date)"></app-selected-date>-->
           </div>
         </div>
-      </div>
+      </div>-->
             
+
+
+      <div class="col-12">
+          <div class="row">
+            <div class="col-lg-9 col-md-12 col-sm-8 text-center rounded p-0">
+                <app-date-range-adder (addDays)="addDays($event)"></app-date-range-adder>
+            </div>  
+            <div class="col-lg-3 col-md-12 col-sm-4 text-center badges bg-light p-0 rounded pb-1">
+                <span *ngFor="let set of [errorDays, showDays]">
+                    <app-selected-date *ngFor="let date of set" class="col-12 p-0" [date]="date" (deleteClicked)="delDay($event)" (dateClicked)="dateClicked($event)" [error]="isErrorDay(date)"></app-selected-date>
+                </span>
+            </div>
+          </div>
+        </div>
   </div>  
   
 </div>

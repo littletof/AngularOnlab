@@ -1,7 +1,60 @@
 
-  <app-radio-group class="mt-1 ml-1" [options]="thisnext" [(selected)]="selectedThisNext"></app-radio-group>
-  <app-radio-group class="mt-1 ml-1" [options]="interval" [(selected)]="selectedInterval"></app-radio-group>
+<!--<div class="container-fluid row col-sm-12 m-0">
+  <div class="col-10 row selector pr-0">
+    <app-radio-group class="mt-1 ml-1" [options]="thisnext" [(selected)]="selectedThisNext"></app-radio-group>
+    <app-radio-group class="mt-1 ml-1" [options]="interval" [(selected)]="selectedInterval"></app-radio-group>
+  </div>
+  <div class="col-2 p-0 ml-4">
+    <button class="btn btn-success btn-sm mt-1 ml-1" (click)="add()">Add</button>
+  </div>
+</div>-->
 
-  <button class="btn btn-success btn-sm" (click)="add()">Add</button>
+<!--
+<div class="container-fluid">
+    <div class="row col-12 p-0 m-0">
+      <div class="col-xs-12 col-sm-6 bg-light p-0">
+          <div class="col-12 row selector pr-0 mr-0">
+              <app-radio-group class="mt-1 ml-1" [options]="thisnext" [(selected)]="selectedThisNext"></app-radio-group>
+              <app-radio-group class="mt-1 ml-1" [options]="interval" [(selected)]="selectedInterval"></app-radio-group>
+          </div>
+
+      </div>
+      <div class="col-xs-12 col-sm-2 bg-dark p-0">
+          <button class="btn btn-success btn-sm mt-1 ml-1" (click)="add()">Add</button>
+      </div>
+    </div>
+</div>
+-->
+
+<div class="container-fluid">
+    <div class="row col-12 p-0 m-0">
+      <div class="col-xs-12 col-sm-9 p-0">
+          <div class="col-12 row selector pr-0 mr-0">
+              <app-radio-group class="mt-1 mr-1" [options]="thisnext" [(selected)]="selectedThisNext"></app-radio-group>
+              <app-radio-group class="mt-1" [options]="interval" [(selected)]="selectedInterval"></app-radio-group>
+          </div>
+
+      </div>
+      <div class="col-xs-12 col-sm-3 p-0">
+          <button class="btn btn-success btn-sm mt-1 ml-1 mb-1" (click)="add()">Add</button>
+      </div>
+    </div>
+</div>
+
+<!--
+<div class="container-fluid">
+    <div class="row col-12 p-0 m-0">
+      <div class="col-xs-12 col-sm-8 bg-light p-0">
+          <div class="col-12 row selector pr-0 mr-0">
+            SELECTOR
+          </div>
+
+      </div>
+      <div class="col-xs-12 col-sm-4 bg-dark p-0">
+          Button
+      </div>
+    </div>
+</div>
+-->
 
   
