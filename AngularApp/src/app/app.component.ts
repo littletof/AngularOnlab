@@ -8,5 +8,7 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'app';
-  constructor() { moment.locale('hu'); }
+  constructor() {
+    moment.locale('hu');
+  }
 }

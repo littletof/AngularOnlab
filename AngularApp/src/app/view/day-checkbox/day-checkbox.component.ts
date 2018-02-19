@@ -19,14 +19,16 @@ export class DayCheckboxComponent implements OnInit, OnChanges {
   @Output() selectedChange: EventEmitter<number[]> = new EventEmitter();
   @Output() change: EventEmitter<any> = new EventEmitter();
 
+  dm = moment.weekdaysMin();
+
   days: any[] = [
-    {value: false, name: 'h', number: 1},
-    {value: false, name: 'k', number: 2},
-    {value: false, name: 'sze', number: 3},
-    {value: false, name: 'cs', number: 4},
-    {value: false, name: 'p', number: 5},
-    {value: false, name: 'szo', number: 6},
-    {value: false, name: 'v', number: 0}
+    {value: false, name: this.dm[1], number: 1},
+    {value: false, name: this.dm[2], number: 2},
+    {value: false, name: this.dm[3], number: 3},
+    {value: false, name: this.dm[4], number: 4},
+    {value: false, name: this.dm[5], number: 5},
+    {value: false, name: this.dm[6], number: 6},
+    {value: false, name: this.dm[0], number: 0}
   ];
 
   constructor() { }
