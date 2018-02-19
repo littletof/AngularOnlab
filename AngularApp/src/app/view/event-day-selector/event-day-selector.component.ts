@@ -66,7 +66,7 @@ export class EventDaySelectorComponent implements OnInit, DoCheck {
     const errored = this.selectedDays.filter(day => this.disabledDays.indexOf(day.isoWeekday() % 7) !== -1 );
     this.errorDays.concat(errored);
 
-    this.showDays = this.selectedDays.filter(day => this.errorDays.indexOf(day) === -1 );
+    this.showDays = this.selectedDays.filter(day => this.disabledDays.indexOf(day.isoWeekday() % 7) === -1 );
   }
 
   sort() {
