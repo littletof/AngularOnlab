@@ -1,16 +1,31 @@
 <div class="container pt-3">
   <h3>Create a new event</h3>
 
-  <div class="col-md-6 col-sm-12 float-left">
+  <div class="col-md-6 col-sm-12 float-left mt-5 pt-3">
       <form class="pt-2">
           <div class="form-group row">
-            <label for="inputEmail3" class="col-sm-2 col-form-label">Title</label>
+            <label for="intputTitle" class="col-sm-2 col-form-label">Title</label>
             <div class="col-sm-10">
-              <input type="text" class="form-control" id="inputEmail3" placeholder="Title">
+              <input type="text" class="form-control" id="intputTitle" placeholder="Title">
             </div>
           </div>
           <div class="form-group row">
-            <label for="inputPassword3" class="col-sm-2 col-form-label">Description</label>
+            <label for="inputName" class="col-sm-2 col-form-label">Name</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" id="inputName" placeholder="John Appleseed">
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="inputEmail" class="col-sm-2 col-form-label">Email</label>
+            <div class="col-sm-10">
+              <input type="email" class="form-control" id="inputEmail" placeholder="demo@app.com">
+              <small id="passwordHelpInline" class="text-muted">
+                  So people can contact you
+              </small>
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="inputDescription" class="col-sm-2 col-form-label">Description</label>
             <div class="col-sm-10">
                 <textarea class="form-control" rows="5" id="comment" placeholder="Description" aria-describedby="passwordHelpInline"></textarea>
                 <small id="passwordHelpInline" class="text-muted">
@@ -24,13 +39,14 @@
           
           
           <div class="form-group row">
-            <div class="col-sm-2">Checkbox</div>
+            <div class="col-sm-2">Options</div>
             <div class="col-sm-10">
               <div class="form-check">
                 <input class="form-check-input" type="checkbox" id="gridCheck1">
-                <label class="form-check-label" for="gridCheck1">
-                  Example checkbox
-                </label>
+                
+                <small for="gridCheck1" class="text-muted">
+                    Anonym poll, only you can see names
+                </small>
               </div>
             </div>
           </div>
@@ -46,7 +62,7 @@
         </form>
   </div>
   <div class="col-md-6 col-sm-12 float-left">
-        <app-event-day-selector (daysSelected)="log($event)" #daySelector></app-event-day-selector>
+        <app-event-day-selector (daysSelected)="dasSelectedChange($event)" #daySelector></app-event-day-selector>
   </div>
   
 </div>

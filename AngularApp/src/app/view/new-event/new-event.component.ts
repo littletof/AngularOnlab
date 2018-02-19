@@ -1,6 +1,7 @@
 import * as moment from 'moment/moment';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { EventDaySelectorComponent } from '../event-day-selector/event-day-selector.component';
+import { Moment } from 'moment/moment';
 
 
 @Component({
@@ -18,7 +19,7 @@ export class NewEventComponent implements OnInit {
   ngOnInit() {
   }
 
-  log(obj: any) {
+  dasSelectedChange(days: Array<Moment>) {
     /*console.log(obj);
     console.log('error', this.datePicker.errorDays);*/
   }
