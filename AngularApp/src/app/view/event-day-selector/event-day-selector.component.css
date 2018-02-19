@@ -3,6 +3,7 @@ app-selected-date{
 }
 
 .badges{
-    max-height: 200px;
+    /*max-height: 200px;*/
+    max-height: 155px;
     overflow-y: auto;
 }
