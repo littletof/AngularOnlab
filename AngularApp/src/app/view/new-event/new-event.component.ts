@@ -3,6 +3,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { EventDaySelectorComponent } from '../event-day-selector/event-day-selector.component';
 import { Moment } from 'moment/moment';
 import { NewEventData } from './model/new-event-data';
+import { Validators, FormControl, FormGroup } from '@angular/forms';
 
 
 @Component({
@@ -24,6 +25,14 @@ export class NewEventComponent implements OnInit {
 
   daysSelectedChange(days: Array<Moment>) {
     this.formData.SelectedDays = days;
+  }
+
+  titleBlur() {
+    this.formData.Title = this.formData.Title.trim();
+  }
+
+  isFormValid(): boolean {
+    return this.formData.isValid();
   }
 
   submit() {
