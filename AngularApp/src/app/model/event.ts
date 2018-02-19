@@ -11,7 +11,6 @@ export class Event {
 
 
     static parseArray(arr: any[]): Event[] {
-        console.log(arr);
         return arr.map(event => this.parseEvent(event));
     }
 
