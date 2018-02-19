@@ -78,6 +78,8 @@
 
     <div class="col-sm-6 col-md-6">
         <button type="submit" class="btn btn-success" [disabled]="!eventForm.form.valid || !isFormValid()">Create</button>
+
+        <small class="ml-3" *ngIf="formData.onlyDaysInvalid() && eventForm.form.valid">Choose possible event days</small>
     </div>
   </form>
   

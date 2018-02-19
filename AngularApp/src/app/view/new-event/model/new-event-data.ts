@@ -9,6 +9,10 @@ export class NewEventData {
         return !!this.Title && !!this.Title.trim() && this.SelectedDays.length > 0;
     }
 
+    onlyDaysInvalid() {
+        return !!this.Title && !!this.Title.trim() && this.SelectedDays.length === 0;
+    }
+
     getError(): any[] {
         return null;
     }
