@@ -10,7 +10,7 @@ import { isNull } from 'util';
 })
 export class DebugEventComponent implements OnChanges, OnInit {
 
-  @Input() event: Event = new Event('', null, '', null);
+  @Input() event: Event = new Event(null, 'Title', null, null, 'Name', 'Email', 'desc');
   @Output() eventChange: EventEmitter<any> = new EventEmitter();
 
   constructor() { }
@@ -27,7 +27,7 @@ export class DebugEventComponent implements OnChanges, OnInit {
 
   private display(obj: any) {
     if (!obj) {
-      this.event = new Event('', null, '', null);
+      this.event = new Event(null, 'Title', null, null, 'Name', 'Email', 'desc');
 
     } else if (Array.isArray(obj)) {
       this.display(obj[0]);
