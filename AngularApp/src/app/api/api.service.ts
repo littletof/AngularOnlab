@@ -43,7 +43,7 @@ export class ApiService {
     .post(API_URL + '/events', c_event)
     .map(response => {
         const event = response.json();
-        return Event.parseArray(event);
+        return Event.parseEvent(event);
   })
   .catch(this.handleError);
   }
