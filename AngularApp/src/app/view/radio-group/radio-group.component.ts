@@ -26,6 +26,12 @@ export class RadioGroupComponent implements OnInit, OnChanges {
     this.selectedChange.emit(this.selected);
   }
 
+  blur(index: number) {
+    if (this.options[index].extraValue && this.options[index].inputBlur) {
+      this.options[index].inputBlur(this.options[index]);
+    }
+  }
+
   ngOnChanges(changes: SimpleChanges): void {
     const change = changes.selected;
     // console.log(change);

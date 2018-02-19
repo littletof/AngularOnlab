@@ -2,6 +2,6 @@
   <label class="btn btn-success btn-sm mb-0" [ngClass]="{active: selected==i}" *ngFor="let option of options; index as i">
     <input type="radio" name="option{{uid}}{{i}}" autocomplete="off" value="{{i}}" hidden (click)="clicked(i)">
     {{option.text}}
-    <input type="number" class="number" *ngIf="option.extra" [(ngModel)]="option.extraValue" (click)="clicked(i)">
+    <input type="number" class="number" *ngIf="option.extra" [(ngModel)]="option.extraValue" (click)="clicked(i)" (blur)="blur(i)">
   </label>
 </div>

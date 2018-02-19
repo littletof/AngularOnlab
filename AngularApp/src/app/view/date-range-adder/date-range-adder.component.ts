@@ -15,7 +15,7 @@ export class DateRangeAdderComponent implements OnInit {
 
   thisnext = [{value: 0, text: 'This', cb: this.thisDays},
               {value: 1, text: 'Upcoming', cb: this.upcomingDays},
-              {value: 2, text: 'Next', cb: this.nextDays, extra: true, extraValue: 1}];
+              {value: 2, text: 'Next', cb: this.nextDays, extra: true, extraValue: 1, inputBlur: this.onblur}];
 
 
   interval = [{value: 1, text: 'Day', moment: 'day'},
@@ -28,6 +28,13 @@ export class DateRangeAdderComponent implements OnInit {
   constructor() {}
 
   ngOnInit() {
+  }
+
+  // to 0 if input was negative
+  onblur(option: any) {
+    if (option.extraValue < 0) {
+      option.extraValue = 0;
+    }
   }
 
   add() {
