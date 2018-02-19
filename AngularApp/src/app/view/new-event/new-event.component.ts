@@ -36,6 +36,7 @@ export class NewEventComponent implements OnInit {
   }
 
   submit() {
+    this.formData.DisabledDays = this.datePicker.disabledDays;
     console.log(this.formData, this.formData.isValid());
   }
 }
