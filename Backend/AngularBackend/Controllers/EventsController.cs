@@ -9,6 +9,8 @@ using AngularBackend.Models;
 using AngularBackend.Context;
 using AngularBackend.Context.DatabaseEntities;
 using System.Diagnostics;
+using System.Web.Script.Serialization;
+using Newtonsoft.Json;
 
 namespace AngularBackend.Controllers {
     public class EventsController : ApiController {
@@ -20,7 +22,7 @@ namespace AngularBackend.Controllers {
             Debug.WriteLine("Get /events");
             try {
                 var result = DatabaseEvent.getAll();
-
+                
                 return Ok(result);
             } catch (Exception) {
                 //If any exception occurs Internal Server Error i.e. Status Code 500 will be returned  
@@ -38,7 +40,7 @@ namespace AngularBackend.Controllers {
                 /*if (result.Count == 0) {
                     return NotFound();
                 }*/
-
+               
                 return Ok(result);
             } catch (Exception) {
                 //If any exception occurs Internal Server Error i.e. Status Code 500 will be returned  
@@ -48,18 +50,22 @@ namespace AngularBackend.Controllers {
 
         // POST api/<controller>
         public IHttpActionResult Post([FromBody]Event value) {
-            Debug.WriteLine("post: {0}", value);
+            Debug.WriteLine("post: {0}", new JavaScriptSerializer().Serialize(value));
             try {
+                Debug.WriteLine("imin");
                 var result = DatabaseEvent.put(value);
 
                 // Empty array is better?!
                 /*if (result.Count == 0) {
                     return NotFound();
                 }*/
+                
 
                 return Ok(result);
-            } catch (Exception) {
-                //If any exception occurs Internal Server Error i.e. Status Code 500 will be returned  
+            } catch (Exception e) {
+                //If any exception occurs Internal Server Error i.e. Status Code 500 will be returned
+                Debug.WriteLine("error");
+                Debug.WriteLine(e);
                 return InternalServerError();
             }
         }

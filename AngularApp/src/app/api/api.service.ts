@@ -32,6 +32,7 @@ export class ApiService {
       .get(API_URL + '/events')
       .map(response => {
           const events = response.json();
+          console.log('return', events);
           return events.map((event) => event as Event[]);
     })
     .catch(this.handleError);

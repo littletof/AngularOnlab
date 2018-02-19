@@ -1,3 +1,4 @@
+import {Event} from '../../../model/event';
 import { Moment } from 'moment';
 
 export class NewEventData {
@@ -15,5 +16,15 @@ export class NewEventData {
 
     getError(): any[] {
         return null;
+    }
+
+    getEvent(): Event {
+        const days: string[] = [];
+        this.SelectedDays.forEach(element => {
+            days.push(element.toISOString());
+        });
+
+        const event = new Event(null, this.Title, days, this.DisabledDays, this.Name, this.Email, this.Description);
+        return event;
     }
 }

@@ -2,8 +2,10 @@
 using System;
 using System.Collections.Generic;
 using System.Data.Entity.Migrations;
+using System.Diagnostics;
 using System.Linq;
 using System.Web;
+using System.Web.Script.Serialization;
 
 namespace AngularBackend.Context.DatabaseEntities {
     public class DatabaseEvent {
@@ -26,12 +28,13 @@ namespace AngularBackend.Context.DatabaseEntities {
         public static Event put(Event ev) {
             if(ev == null) {
                 return null;
-            }            
-
+            }
+            Debug.WriteLine(new JavaScriptSerializer().Serialize(ev));
             using (var db = new DatabaseContext()) {
 
                 Event result = db.Events.Add(ev);
                 db.SaveChanges();
+                Debug.WriteLine(new JavaScriptSerializer().Serialize(result));
                 return result;
             }
 

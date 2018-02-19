@@ -4,6 +4,7 @@ import { EventDaySelectorComponent } from '../event-day-selector/event-day-selec
 import { Moment } from 'moment/moment';
 import { NewEventData } from './model/new-event-data';
 import { Validators, FormControl, FormGroup } from '@angular/forms';
+import { ApiService } from '../../api/api.service';
 
 
 @Component({
@@ -18,7 +19,7 @@ export class NewEventComponent implements OnInit {
   @ViewChild(EventDaySelectorComponent)
   datePicker: EventDaySelectorComponent;
 
-  constructor() {}
+  constructor(private api: ApiService) {}
 
   ngOnInit() {
   }
@@ -37,6 +38,8 @@ export class NewEventComponent implements OnInit {
 
   submit() {
     this.formData.DisabledDays = this.datePicker.disabledDays;
-    console.log(this.formData);
+    const event = this.formData.getEvent();
+    console.log(JSON.stringify(this.formData), JSON.stringify(event));
+    this.api.createEvent(event).subscribe(result => console.log);
   }
 }
