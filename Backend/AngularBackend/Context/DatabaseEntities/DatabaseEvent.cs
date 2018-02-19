@@ -29,12 +29,10 @@ namespace AngularBackend.Context.DatabaseEntities {
             if(ev == null) {
                 return null;
             }
-            Debug.WriteLine(new JavaScriptSerializer().Serialize(ev));
             using (var db = new DatabaseContext()) {
 
                 Event result = db.Events.Add(ev);
                 db.SaveChanges();
-                Debug.WriteLine(new JavaScriptSerializer().Serialize(result));
                 return result;
             }
 

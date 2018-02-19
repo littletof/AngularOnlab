@@ -39,7 +39,7 @@ export class NewEventComponent implements OnInit {
   submit() {
     this.formData.DisabledDays = this.datePicker.disabledDays;
     const event = this.formData.getEvent();
-    console.log(JSON.stringify(this.formData), JSON.stringify(event));
+    // console.log(JSON.stringify(event));
     this.api.createEvent(event).subscribe(result => console.log);
   }
 }

@@ -32,8 +32,7 @@ export class ApiService {
       .get(API_URL + '/events')
       .map(response => {
           const events = response.json();
-          console.log('return', events);
-          return events.map((event) => event as Event[]);
+          return Event.parseArray(events);
     })
     .catch(this.handleError);
   }
@@ -44,7 +43,7 @@ export class ApiService {
     .post(API_URL + '/events', c_event)
     .map(response => {
         const event = response.json();
-        return event as Event[];
+        return Event.parseArray(event);
   })
   .catch(this.handleError);
   }
@@ -55,7 +54,7 @@ export class ApiService {
       .get(API_URL + '/events/' + eventId)
       .map(response => {
           const event = response.json();
-          return event as Event;
+          return Event.parseEvent(event);
     })
     .catch(this.handleError);
   }
@@ -76,7 +75,7 @@ export class ApiService {
       .delete(API_URL + '/events/' + eventId)
       .map(response => {
           const event = response.json();
-          return event as Event[];
+          return Event.parseArray(event);
     })
     .catch(this.handleError);
   }

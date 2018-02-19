@@ -21,6 +21,7 @@ export class DebugCrudComponent implements OnInit {
   private get() {
     this.api.getAllEvents().subscribe(events => {
       console.log('get', events);
+      console.log(events[0].selectedDays[0].toLocaleString());
       this.return(events);
     });
   }

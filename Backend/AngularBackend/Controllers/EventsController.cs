@@ -51,15 +51,8 @@ namespace AngularBackend.Controllers {
         // POST api/<controller>
         public IHttpActionResult Post([FromBody]Event value) {
             Debug.WriteLine("post: {0}", new JavaScriptSerializer().Serialize(value));
-            try {
-                Debug.WriteLine("imin");
+            try {                
                 var result = DatabaseEvent.put(value);
-
-                // Empty array is better?!
-                /*if (result.Count == 0) {
-                    return NotFound();
-                }*/
-                
 
                 return Ok(result);
             } catch (Exception e) {

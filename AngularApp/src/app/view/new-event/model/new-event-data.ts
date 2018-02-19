@@ -24,7 +24,7 @@ export class NewEventData {
             days.push(element.toISOString());
         });
 
-        const event = new Event(null, this.Title, days, this.DisabledDays, this.Name, this.Email, this.Description);
+        const event = new Event(null, this.Title, this.SelectedDays, this.DisabledDays, this.Name, this.Email, this.Description);
         return event;
     }
 }
