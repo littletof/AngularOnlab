@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import * as moment from 'moment/moment';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { EventDaySelectorComponent } from '../event-day-selector/event-day-selector.component';
 
 
 @Component({
@@ -8,13 +10,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NewEventComponent implements OnInit {
 
+  @ViewChild(EventDaySelectorComponent)
+  datePicker: EventDaySelectorComponent;
+
   constructor() {}
 
   ngOnInit() {
-    // PickerHacker.hackDatePicker(this.datePicker, this.allowed);
   }
 
   log(obj: any) {
-    console.log(obj);
+    /*console.log(obj);
+    console.log('error', this.datePicker.errorDays);*/
   }
 }

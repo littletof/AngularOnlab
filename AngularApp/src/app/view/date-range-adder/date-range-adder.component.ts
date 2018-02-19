@@ -52,10 +52,8 @@ export class DateRangeAdderComponent implements OnInit {
     const interval = obj.interval[obj.selectedInterval].moment;
 
     const start = moment().endOf(interval as any).startOf('day').add(1, 'day');
-    console.log(start);
-    const end = start.clone().add(1, interval as any);
 
-    console.log(start, end);
+    const end = start.clone().add(1, interval as any);
 
     const daysuntil = end.diff(start, 'day');
     return obj.dayForIntFrom(start, daysuntil);
