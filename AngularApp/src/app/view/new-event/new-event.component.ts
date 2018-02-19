@@ -2,6 +2,7 @@ import * as moment from 'moment/moment';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { EventDaySelectorComponent } from '../event-day-selector/event-day-selector.component';
 import { Moment } from 'moment/moment';
+import { NewEventData } from './model/new-event-data';
 
 
 @Component({
@@ -11,6 +12,8 @@ import { Moment } from 'moment/moment';
 })
 export class NewEventComponent implements OnInit {
 
+  formData: NewEventData = new NewEventData();
+
   @ViewChild(EventDaySelectorComponent)
   datePicker: EventDaySelectorComponent;
 
@@ -19,8 +22,11 @@ export class NewEventComponent implements OnInit {
   ngOnInit() {
   }
 
-  dasSelectedChange(days: Array<Moment>) {
-    /*console.log(obj);
-    console.log('error', this.datePicker.errorDays);*/
+  daysSelectedChange(days: Array<Moment>) {
+    this.formData.SelectedDays = days;
+  }
+
+  submit() {
+    console.log(this.formData, this.formData.isValid());
   }
 }
