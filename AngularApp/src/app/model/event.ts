@@ -3,7 +3,7 @@ import { Entry } from './entry';
 import { Moment } from 'moment';
 
 export class Event {
-    constructor(public id: number, public title: string, public selectedDays: Moment[],
+    constructor(public id: number, public title: string, public selectedDays: Moment[], public path: string,
         public disabledDays?: number[], public name?: string, public email?: string, public description?: string) {}
 
     /*{"Title":"Title","Name":"Name","Email":"email@e.ma","Description":"description",

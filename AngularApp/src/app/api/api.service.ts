@@ -75,7 +75,7 @@ export class ApiService {
       .delete(API_URL + '/events/' + eventId)
       .map(response => {
           const event = response.json();
-          return Event.parseArray(event);
+          return Event.parseEvent(event);
     })
     .catch(this.handleError);
   }

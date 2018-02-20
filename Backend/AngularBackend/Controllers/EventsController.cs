@@ -53,7 +53,7 @@ namespace AngularBackend.Controllers {
             Debug.WriteLine("post: {0}", new JavaScriptSerializer().Serialize(value));
             try {                
                 var result = DatabaseEvent.put(value);
-
+                Debug.WriteLine(new JavaScriptSerializer().Serialize(result));
                 return Ok(result);
             } catch (Exception e) {
                 //If any exception occurs Internal Server Error i.e. Status Code 500 will be returned

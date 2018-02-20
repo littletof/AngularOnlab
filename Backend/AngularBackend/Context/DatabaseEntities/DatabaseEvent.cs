@@ -30,6 +30,7 @@ namespace AngularBackend.Context.DatabaseEntities {
                 return null;
             }
             using (var db = new DatabaseContext()) {
+                ev.Path = DatabaseHelper.CreateMD5(DateTime.UtcNow.ToString());
 
                 Event result = db.Events.Add(ev);
                 db.SaveChanges();

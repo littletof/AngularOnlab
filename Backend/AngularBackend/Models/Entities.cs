@@ -16,6 +16,9 @@ namespace AngularBackend.Models {
         public string Name { get; set; }
         public string Email { get; set; }
         public string Description { get; set; }
+        public string Path { get; set; }
+
+
 
         [NotMapped]
         public List<string> SelectedDays { get; set; }
@@ -40,7 +43,7 @@ namespace AngularBackend.Models {
                 }
             }
             set {
-                DisabledDays = ListHelper.intListSetter(value);
+                DisabledDays = DatabaseHelper.intListSetter(value);
             }
         }
 
