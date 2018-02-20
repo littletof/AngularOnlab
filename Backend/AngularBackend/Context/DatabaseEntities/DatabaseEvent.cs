@@ -25,12 +25,19 @@ namespace AngularBackend.Context.DatabaseEntities {
             }
         }
 
+        public static Event getByPath(string event_path) {
+            using (var db = new DatabaseContext()) {
+                Event result = db.Events.SingleOrDefault<Event>(even => even.Path.ToLower() == event_path.ToLower());
+                return result;
+            }
+        }
+
         public static Event put(Event ev) {
             if(ev == null) {
                 return null;
             }
             using (var db = new DatabaseContext()) {
-                ev.Path = DatabaseHelper.CreateMD5(DateTime.UtcNow.ToString());
+                ev.Path = DatabaseHelper.CreateMD5(DateTime.UtcNow.ToString()).ToLower();
 
                 Event result = db.Events.Add(ev);
                 db.SaveChanges();

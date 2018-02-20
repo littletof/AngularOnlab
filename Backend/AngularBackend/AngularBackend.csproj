@@ -100,6 +100,7 @@
     <Compile Include="Context\DatabaseEntities\ListHelper.cs" />
     <Compile Include="Context\DatabaseInitialization.cs" />
     <Compile Include="Controllers\DefaultController.cs" />
+    <Compile Include="Controllers\EventPathController.cs" />
     <Compile Include="Controllers\EventsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>

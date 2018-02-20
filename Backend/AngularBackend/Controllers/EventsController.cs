@@ -48,6 +48,10 @@ namespace AngularBackend.Controllers {
             }
         }
 
+        public IHttpActionResult Get(string id) {
+            return Ok("get string");
+        }
+
         // POST api/<controller>
         public IHttpActionResult Post([FromBody]Event value) {
             Debug.WriteLine("post: {0}", new JavaScriptSerializer().Serialize(value));
