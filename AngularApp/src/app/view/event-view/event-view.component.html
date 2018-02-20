@@ -1,3 +1,11 @@
-<p>
-  {{event?.selectedDays}}
-</p>
+<div class="container-fluid">
+
+  <div class="col-6">
+    <multiple-date-picker #datePicker [allDaysOff]="true" [matIcons]="true" [showDaysOfSurroundingMonths]="true" 
+    [fontAwesome]="true" [disallowBackPastMonths]="true"></multiple-date-picker>
+  </div>
+  <div class="mt-5">
+  {{event | json}}
+  </div>
+
+</div>
