@@ -38,7 +38,7 @@ export class ApiService {
   }
 
   // API: POST /events
-  public createEvent(c_event: Event): Observable<Event[]> {
+  public createEvent(c_event: Event): Observable<Event> {
     return this.http
     .post(API_URL + '/events', c_event)
     .map(response => {
@@ -52,6 +52,17 @@ export class ApiService {
   public getEventById(eventId: number): Observable<Event> {
     return this.http
       .get(API_URL + '/events/' + eventId)
+      .map(response => {
+          const event = response.json();
+          return Event.parseEvent(event);
+    })
+    .catch(this.handleError);
+  }
+
+  // API: GET /events/:id
+  public getEventByPath(path: string): Observable<Event> {
+    return this.http
+      .get(API_URL + '/eventpath/' + path)
       .map(response => {
           const event = response.json();
           return Event.parseEvent(event);

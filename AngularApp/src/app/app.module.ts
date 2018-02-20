@@ -31,6 +31,7 @@ import { SelectedDateComponent } from './view/selected-date/selected-date.compon
 import { DateRangeAdderComponent } from './view/date-range-adder/date-range-adder.component';
 import { RadioGroupComponent } from './view/radio-group/radio-group.component';
 import { EventDaySelectorComponent } from './view/event-day-selector/event-day-selector.component';
+import { EventViewComponent } from './view/event-view/event-view.component';
 
 @NgModule({
   declarations: [
@@ -44,7 +45,8 @@ import { EventDaySelectorComponent } from './view/event-day-selector/event-day-s
     SelectedDateComponent,
     DateRangeAdderComponent,
     RadioGroupComponent,
-    EventDaySelectorComponent
+    EventDaySelectorComponent,
+    EventViewComponent
   ],
   imports: [
     BrowserModule,

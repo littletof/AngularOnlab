@@ -27,7 +27,13 @@ export class DataService {
     // return Observable.of(null);
   }
 
-  public createEvent(event: Event): Observable<Event[]> {
+  public getEventByPath(path: string):  Observable<Event> {
+    if (path) {
+      return this.api.getEventByPath(path);
+    }
+  }
+
+  public createEvent(event: Event): Observable<Event> {
     return this.api.createEvent(event);
   }
 
